@@ -1,0 +1,1593 @@
+<style type="text/css">
+
+blink {
+  -webkit-animation: blink 3s step-end infinite; color : red; 
+  animation: blink 3s step-end infinite
+}
+ 
+@-webkit-keyframes blink {
+  67% { opacity: 0 }
+}
+ 
+@keyframes blink {
+  67% { opacity: 0 }
+}
+
+goth {
+	font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+	font-size: 13px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 18.5667px;
+}
+
+
+</style>
+</head>
+<body bgcolor="#BABBAB" link="#0000FF" vlink="#800080">
+
+  <!---
+
+<font color="#FF3377">
+
+<h1>A Physicist's Introduction to Algebraic Structures </h1>
+
+<h2> Palash B. Pal</h2>
+
+<h3> ISBN: 978-1-108-49220-1 (Hardback), 978-1-108-72911-6
+(Paperback) </h3>
+
+</font>
+
+---->
+
+
+<hr>
+
+To inform the author of any error that is not listed here, 
+<a href="mailto:palashbaran.pal@saha.ac.in">click here.</a>
+
+<hr>
+
+<!----
+<h2> <font color="#AA0A0A">Errata compiled so far</font></h2>
+--->
+
+<hr>
+
+<center>
+<h3>
+Errors in mathematical formulas or arguments</h3></center>
+
+
+<center><table BORDER WIDTH="100%" >
+<tr BGCOLOR="#00B0B0">
+<th WIDTH="5%">Page</th>
+<th WIDTH="15%">Position</th>
+<th WIDTH="27.5%">Replace</th>
+<th WIDTH="27.5%">by</th>
+<th WIDTH="25%">Thanks go to</th>
+</tr>
+
+
+<!---------->
+
+<tr>
+
+<td> 15 </td>
+
+<td> Eq. (1.33) </td>
+
+<td> <i> (P&rArr;Q) &and; (Q&rArr;R) <blink>=</blink> (P&rArr;R) </i> </td>
+
+<td> <i> (P&rArr;Q) &and; (Q&rArr;R) <blink>&rArr;</blink>
+    (P&rArr;R) </i> </td> 
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 22 </td>
+
+<td> Table in Eq. (2.17), 2nd row </td>
+
+<td> <i> T T T T T </i> </td>
+
+<td> <i> T F F F F </i> </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 25 </td>
+
+<td> Eq. (2.26) </td>
+
+<td> <i> f(G) = {y &#x2208; Y | &#x2203; x: f(x)=y} </i> </td>
+
+<td> <i> f(G) = {y &#x2208; Y | &#x2203;  x <blink>
+    &#x2208; G: </blink> f(x)=y} </i> </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 28 </td>
+
+<td> Example 3 </td>
+
+<td colspan=2> Matrix multiplication is a binary operation on the
+  said set.  Matrix addition is a binary operation on the set
+  of <u>all</u> <i>n&times;n</i> matrices. </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 39 </td>
+
+<td> Eq. (3.4) </td>
+
+<td colspan=2> The expression on the right
+  side should be placed under a square root sign. </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 51 </td>
+
+<td> Next to last sentence in the proof of Theorem 3.10 </td>
+
+<td> Now, one can write an arbitrary combination of <i>a</i>
+  and <i>b</i> as <i>ax + by = <blink> (ak+bl)g </blink></i> </td>
+
+<td> Now, one can write an arbitrary combination of <i>a</i>
+  and <i>b</i> as <i>ax + by = <blink> (kx+ly)g </blink></i> </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 69 </td>
+
+<td> 2nd line after Eq. (4.7) </td>
+
+<td> something that is more commonly denoted by <i><blink>
+      f(v) </blink></i> </td> 
+
+<td> something that is more commonly denoted by <i><blink>
+      f&#x303;(v) </blink></i> </td> 
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 70 </td>
+
+<td> Example 2 </td>
+
+<td colspan=2> The example given is a valid
+  example of a linear map, which is an
+  element in the dual space.  It does not
+  describe the full dual space.  There are
+  other maps, of course.
+
+<td> Charanjit Singh Aulakh, IISER Mohali </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 73 </td>
+
+<td> Eq. (4.22), right side </td>
+
+<td> <i> x<sub>i</sub></i><sup>2</sup> </td>
+
+<td> |<i>x<sub>i</sub></i>|<sup><i>p</i></sup> </td>
+
+<td> </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 98 </td>
+
+<td> Eq. (5.60) </td>
+
+<td> <i>
+    e'<sub>(j)</sub> = &sum;<sub>k</sub>
+    (S<sup>-1</sup>)<sup>i</sup><sub>k</sub> e<sub>(i)</sub> </td>
+
+<td> <i>
+    e'<sub>(k)</sub> = &sum;<sub>i</sub>
+    (S<sup>-1</sup>)<sup>i</sup><sub>k</sub> e<sub>(i)</sub> </td>
+
+<td> Charanjit Singh Aulakh, IISER Mohali </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 104 </td>
+
+<td> After Eq. (5.98) </td>
+
+<td colspan=2> The proof of the Cayley-Hamilton theorem is not 
+  trivial.  The result is an operator relation, as given in
+  Eq. (5.98), and cannot be inferred from Eq. (5.95) which is a
+  determinant equation.  The proof mentioned in the book is often
+  called the <i>bogus proof</i> of the theorem.  Just ignore the
+  "proof".  The theorem has been rightly applied in what follows
+  immediately, and elsewhere.
+  
+ </td>
+
+<td> Charanjit Singh Aulakh, IISER Mohali </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 124 </td>
+
+<td> Eq. (5.222) </td>
+
+<td> <i>U = &sum;<sub>i</sub> <blink> |R<sub>(i)</sub>&#x27e9;
+    &#x27e8;e<sub>(i)</sub>|</blink>,  &nbsp;
+    V = &sum;<sub>i</sub> <blink> |L<sub>(i)</sub>&#x27e9;
+    &#x27e8;e<sub>(i)</sub>|</blink>.
+</i> </td>
+
+<td> <i>U = &sum;<sub>i</sub> <blink> |e<sub>(i)</sub>&#x27e9;
+    &#x27e8;R<sub>(i)</sub>|</blink>,  &nbsp;
+    V = &sum;<sub>i</sub> <blink> exp(-i&alpha;<sub>i</sub>)
+    |e<sub>(i)</sub>&#x27e9; 
+    &#x27e8;L<sub>(i)</sub>|, <i> <br>
+    where &alpha;<sub>i</sub> is the phase of
+    &lambda;<sub>i</sub></blink>. 
+</td>
+
+<td> Charanjit Singh Aulakh, IISER Mohali </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 128 </td>
+
+<td> 2nd line after Eq. (6.5) </td>
+
+<td>  If the Wronskian vanishes, the
+  functions are linearly <blink> independent. </blink> </td> 
+
+<td>  If the Wronskian vanishes, the
+  functions are linearly <blink> dependent. </blink> </td> 
+
+
+<td> Joydeep Sarkar, Chennai Mathematical Institute </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 174 </td>
+
+<td> after Eq. (7.63) </td>
+
+<td>  <i>h<sub>i</sub><sup>&minus;1</sup></i> also commutes
+  with <blink><i>g</i></blink> </td> 
+
+<td>  <i>h<sub>i</sub><sup>&minus;1</sup></i> also commutes
+  with <blink><i>h</i></blink> </td> 
+
+<td> Sayan Chakrabarti, IIT Guwahati </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 176 </td>
+
+<td> Th. 7.16 </td>
+
+<td colspan=2> The theorem, as stated, is wrong.  It is best to
+  disregard the statement as well as the proof. </td>
+
+<td>  Charanjit Singh Aulakh, IISER Mohali </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 185 </td>
+
+<td> Eq. 7.100 </td>
+
+<td> img(<i>f<sub>k</sub></i>) = ker(<i>f<sub>k+1</sub></i>) </td>
+
+<td> img(<i>f<sub>k-1</sub></i>) = ker(<i>f<sub>k</sub></i>) </td>
+
+<td>  Charanjit Singh Aulakh, IISER Mohali </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 207 </td>
+
+<td> 2nd line after Eq. (8.77) </td>
+
+<td> imply <i>b=a<sup><blink>&minus;k</blink></sup></i> </td>
+
+<td> imply <i>b=a<sup><blink>&minus;k&plus;1<blink></sup></i> </td>
+
+<td>  </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 222 </td>
+
+<td> last line </td>
+
+<td> one 2-cycle and <blink>three</blink> 1-cycles </td>
+
+<td> one 2-cycle and <blink>two</blink> 1-cycles </td>
+
+<td> Inayat R. Bhat </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 229 </td>
+
+<td> Eq. (9.5), 1st line </td>
+
+<td> <i>U<sup>&dagger;</sup>A<sub>i</sub><sup>&dagger;</sup>A<sub>i</sub><blink>U<sup>&dagger;</blink></sup></i> </td>
+
+<td> <i>U<sup>&dagger;</sup>A<sub>i</sub><sup>&dagger;</sup>A<sub>i</sub><blink>U</blink></i> </td>
+
+<td> Trinesh Sana, Calcutta University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 239 </td>
+
+<td> Eq. (9.64) </td>
+
+<td colspan=2> The right side of the equation should have an additional
+  factor of 1/|<i>G</i>|. </td>
+
+<td> Inayat R. Bhat </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td rowspan=3> 263 </td>
+
+<td> row for <i>A</i><sub>3</sub> in Eq. (9.149) </td>
+
+<td>
+  <table cellpadding=5>
+    <tr> <td>1</td> <td align=center>1 </td>
+      <td align=center>1 </td>   <td align=center>&minus;1 </td>
+      <td align=center>	&minus;1</td> </tr>
+   </table></td>
+
+<td>
+  <table cellpadding=5>
+    <tr> <td>1</td> <td align=center>&minus;1 </td>
+      <td align=center>1 </td>   <td align=center>1 </td>
+      <td align=center>	&minus;1</td> </tr>
+    </table></td>
+
+<td> Inayat R. Bhat </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 3rd line of text after Eq. (9.149) </td>
+
+<td> the elements of the <blink>first three classes</blink> form a
+  subgroup of rotations </td> 
+
+<td> the elements of the <blink>first, third and fourth</blink> classes
+  form a subgroup of rotations </td>
+
+<td> Inayat R. Bhat </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> rows for <i>A</i><sub>3</sub> and  <i>A</i><sub>4</sub> in Eq. (9.150) </td>
+
+<td>
+  <table cellpadding=5>
+    <tr> <td>1</td> <td align=center>1 </td>
+      <td align=center>1 </td>   <td align=center>&minus;1 </td>
+      <td align=center>	&minus;1</td> </tr>
+    <tr> <td>1</td> <td align=center>&minus;1</td>
+      <td align=center>1</td> <td align=center>1</td>
+      <td align=center>&minus;1</td> </tr> </table></td>
+
+<td>
+  <table cellpadding=5>
+    <tr> <td>1</td> <td align=center>&minus;1 </td>
+      <td align=center>1 </td>   <td align=center>1 </td>
+      <td align=center>	&minus;1</td> </tr>
+    <tr> <td>1</td> <td align=center>1</td>
+      <td align=center>1</td> <td align=center>&minus;1</td>
+      <td align=center>&minus;1</td> </tr> </table></td>
+
+<td> Inayat R. Bhat </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 265 </td>
+
+<td> just before Eq. (9.155) </td>
+
+<td> classes of <blink><i>S</i><sub>3</sub></blink> </td>
+
+<td> classes of <blink><i>S</i><sub>4</sub></blink> </td>
+
+<td> Luis Odin Estrada Ramos, UNAM, Mexico </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 270 </td>
+
+<td> Eq. (9.178) </td>
+
+<td colspan=2> The places of <i>A</i><sub>3</sub>
+  and <i>A</i><sub>4</sub> should be interchanged. </td> 
+
+<td> Inayat R. Bhat </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 296 </td>
+
+<td> End of 6th line after Eq. (10.50) </td>
+
+<td> and <blink>&alpha;<sub>3</sub></blink>
+  = 1 + 1 + 2 = 4. </td>
+
+<td> and <blink>&alpha;<sub>6</sub></blink>
+  = 1 + 1 + 2 = 4. </td>
+
+<td>  </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 301, 302 </td>
+
+<td> Eqs. (10.73), (10.74) </td>
+
+<td colspan=2> The arguments of all sin and
+  cos functions should be <i>2&pi;k/M</i>;
+  there should not be any factor
+  of <i>i</i>. </td>
+
+<td> Charanjit Singh Aulakh, IISER Mohali </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 316 </td>
+
+<td> Heading of Section 11.3 </td>
+
+<td colspan=2> The group denoted
+  by <blink><i>SL(2,Z)</i></blink> in the
+  heading has been
+  called <blink><i>SL(2Z)</i></blink> within
+  the text.  The notations with and without
+  the comma mean the same thing. </td>
+
+<td> Augniva Ray, Saha Institute of Nuclear Physics, Calcutta </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td rowspan=2> 334  </td>
+
+<td rowspan=2> 1st paragraph </td>
+
+<td colspan=2>
+  There are two different uses of the word "semisimple", as applied to
+  algebras.  In this paragraph, the word "semisimple" has been used in
+  the exclusive sense, i.e., these are algebras which are neither
+  simple, nor do they have any abelian ideal.  Beginning from the next
+  paragraph, the same word has been used in an inclusive sense, i.e.,
+  by simply demanding that they do not have any abelian ideal.  In the
+  latter sense, simple algebras also fall in the class of semisimple
+  algebras.  One should interpret  Theorem 12.2 in this way, as well
+  as Theorems 12.7 and 12.8 later in the chapter.<p>
+
+  Alternatively, one can use the inclusive definition throughout by
+  making the following changes in this paragraph:
+  
+
+<td rowspan=2> Augniva Ray, Saha Institute of Nuclear
+  Physics, Calcutta </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> If an algebra is non-simple but not in this trivial way, i.e.,
+  not by the presence of any U(1) generator that commutes with every
+  generator, then it is called a <i>semisimple algebra.</i>  We will
+  see in Chapter 15 that SO(4), the algebra of the group of 4&times;4
+  orthogonal matrices, is semisimple. </td>
+
+<td> If an algebra is not non-simple in this trivial way, i.e.,
+  if an algebra does not have any U(1) ideal, then it is called
+  a <i>semisimple algebra.</i>  The definition therefore includes
+  simple algebras which do not have any non-trivial ideal at all, as
+  well as other algebras which have non-trival ideals which are all
+  non-abelian.  We will see in Chapter 15 that SO(4), the algebra of
+  the group of 4&times;4 orthogonal matrices, is of this last kind,
+  i.e., is semisimple but not simple. </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 337  </td>
+
+<td> midway in the 2nd paragraph  </td>
+
+<td> But the total exponent must be Hermitian so that <i>R(&xi;)</i>
+  is unitary, which means that the exponent must also contain the
+  Hermitian conjugate of <i>&minus;i&xi;X</i>, which
+  is <i>+i&xi;<sup>*</sup>X</i><sup>&dagger;</sup>. </td>
+
+<td> But the total exponent must be of the form of the imaginary
+  unit <i>i</i> times a Hermitian operator so that <i>R(&xi;)</i> is
+  unitary, which means that the terms involving &xi; in the exponent
+  must be of the form <i>&minus;i(&xi;X +
+  &xi;<sup>*</sup>X</i><sup>&dagger;</sup>). </td>
+
+<td> Charanjit Singh Aulakh, IISER Mohali </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 338  </td>
+
+<td> Eq. (12.35), right side  </td>
+
+<td> <i>K<sub>I</sub></i> </td> 
+
+<td> <i>a<sub>I</sub>K<sub>I</sub></i> </td> 
+
+<td> Charanjit Singh Aulakh, IISER Mohali </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 339  </td>
+
+<td> Eq. (12.45), second line  </td>
+
+<td> [A,[B,C]<sub>+</sub>] +
+    [B,[C,A]<sub><blink>+</blink></sub>]<sub>+</sub> &minus;
+    [C,[A,B]<sub><blink>+</blink></sub>]<sub>+</sub> = 0 </td> 
+
+<td> [A,[B,C]<sub>+</sub>] +
+    [B,[C,A]]<sub>+</sub> &minus;
+    [C,[A,B]]<sub>+</sub> = 0 </td> 
+
+<td> Trinesh Sana, Calcutta University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 350  </td>
+
+<td> Eq. (12.95), last term on the right side  </td>
+
+<td> T<sub>a</sub><sup>&dagger;(2)</sup> &otimes;
+  T<sub>b</sub><sup>(1)</sup> </td> 
+
+<td> T<sub>b</sub><sup>(1)</sup> &otimes;
+  T<sub>a</sub><sup>&dagger;(2)</sup> </td> 
+
+<td> Charanjit Singh Aulakh, IISER Mohali </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 351  </td>
+
+<td> Eq. (12.98), 3rd term on the left side  </td>
+
+<td>
+  (<sup>2</sup>&frasl;<sub>d<sup>(ad)</sup></sub>)
+  tr (T<sub>a</sub><sup>&dagger;(1)</sup>) 
+  tr (T<sub>a</sub><sup>(2)</sup>) </td> 
+
+<td>
+  (<sup>1</sup>&frasl;<sub>d<sup>(ad)</sup></sub>) <font size=+2>[</font> 
+  tr (T<sub>a</sub><sup>&dagger;(1)</sup>) 
+  tr (T<sub>a</sub><sup>(2)</sup>) + 
+  tr (T<sub>a</sub><sup>(1)</sup>) 
+  tr (T<sub>a</sub><sup>&dagger;(2)</sup>)
+  <font size=+2>]</font> </td> 
+
+<td> Charanjit Singh Aulakh, IISER Mohali </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 356  </td>
+
+<td> Section 12.10.4  </td>
+
+<td colspan=2>
+  The entire argument, leading to Eq. (12.124), can be taken as an
+  argument for the normalization constant of a representation of a
+  direct product group, replacing <i>C<sub>2</sub></i> by <i>K</i>.
+
+<!----
+  
+  The formula for the Casimir invariant should be:
+
+--->
+
+For the Casimir invariant, the factors of the dimensions of the
+representations should be omitted in all three equations of this
+section.  It means that the final formula should be
+
+  <p align="center">
+  <i> C<sub>2</sub><sup>(R,R')</sup> = 
+    C<sub>2</sub><sup>(R)</sup> + 
+    C<sub>2</sub><sup>(R')</sup>,
+  </i>
+  <p>
+
+with appropriate changes in the two earlier equations.  The dimensions
+are important only to the extent that the unit matrix
+is <i>d<sup>(R)</sup>d<sup>(R')</sup></i>-dimensional in these earlier
+equations.
+
+  <!---
+<p>
+
+  which follows easily from the expression for the generators of the
+  product group, viz., if the number of generators of <i>G</i>
+  and <i>G'</i> are <i>d</i> and <i>d'</i> respectively, then, for the
+  product group, there are
+
+<p align="center">
+
+  <i>d</i> generators of the form  <i>T<sup>(R)</sup> &otimes; 1 </i> <br>
+  <i>d'</i> generators of the form  <i>1 &otimes;
+  T<sup>(R')</sup></i>.
+
+--->
+
+<td> Charanjit Singh Aulakh, IISER Mohali </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 383  </td>
+
+<td> Eq. (13.162), under the square root sign  </td>
+
+<td> <i> s(s &plus; 1) <blink> &plusmn; </blink> m(m <blink>
+      &minus; </blink> 1) </i> </td> 
+
+<td> <i> s(s &plus; 1) <blink> &minus; </blink> m(m  <blink>
+      &plusmn </blink> 1) </i> </td> 
+
+<td> Augniva Ray, Saha Institute of Nuclear Physics, Calcutta </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 386  </td>
+
+<td> Table 13.2, first table
+  </td>
+
+<td colspan=2> In the column marked <i>m</i><sub>1</sub>, the entry
+  for the second row should be  &minus;&#x00bd;, not &#x00bd;. </td>
+
+<td> Augniva Ray, Asia-Pacific Center for Theoretical Physics </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 422 </td>
+
+<td> 2nd line after Eq. (15.16) </td>
+
+<td> if <blink><i>V</i></blink> is </td>
+
+<td> if <blink><i>M</i></blink> is </td>
+
+<td> Augniva Ray, Saha Institute of Nuclear Physics, Calcutta </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 426  </td>
+
+<td> Eq. (15.31) </td>
+
+<td colspan=2> There should not be a minus
+  sign on the right side of this equation.  </td>
+
+<td> Trinesh Sana, Calcutta University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 439 </td>
+
+<td> line after Eq. (15.80) </td>
+
+<td> Recalling that <blink><i>C</i><sup>&minus;1</sup> =
+    <i>C</i><sup>&minus;1</sup></blink> </td>
+
+<td> Recalling that <blink>(<i>C<sup>*</sup>C</i>)<sup>&minus;1</sup> =
+    <i>C</i><sup>&minus;1</sup> <i>C</i><sup>T</sup></blink> </td>
+
+<td> Augniva Ray, Saha Institute of Nuclear Physics, Calcutta </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 474 </td>
+
+<td> first line of text </td>
+
+<td> denote by <blink>&Lambda;</blink> a matrix </td>
+
+<td> denote by <blink><u>&Lambda;</u></blink> a matrix </td>
+
+<td> Augniva Ray, Saha Institute of Nuclear Physics, Calcutta </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 482 </td>
+
+<td> 2nd line of Eq. (17.57), left side </td>
+
+<td> <blink><i>t' &minus; z'</i></blink> </td>
+
+<td> <blink><i>ct' &minus; z'</i></blink> </td>
+
+<td> Augniva Ray, Saha Institute of Nuclear Physics, Calcutta </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 498  </td>
+
+<td> Eq. (17.143) </td>
+
+<td colspan=2> The right sides of
+  Eqs. (17.143b) and (17.143d) should have
+  overall negative signs. </td>
+
+<td> Amitabha Lahiri, S N Bose Centre for
+  Basic Sciences </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 577 </td>
+
+<td> Eq. (19.148) </td>
+
+<td> <i>
+    x<sub>i</sub> &rarr; x'<sub>i</sub>
+    &plus; &epsilon;<sub>i</sub>(x)
+</i> </td>
+
+<td> <i>
+    x<sub>i</sub> &rarr; x'<sub>i</sub> = x<sub>i</sub> 
+    &plus; &epsilon;<sub>i</sub>(x)
+</i>  </td>
+<td> Augniva Ray, Saha Institute of Nuclear Physics, Calcutta </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 587 </td>
+
+<td> Eq. (19.211) </td>
+
+<td colspan=2> In the expression
+  for <i>h(t)</i>, the sum should be over <i>n</i>.
+</i> </td>
+
+<td> Augniva Ray, Saha Institute of Nuclear Physics, Calcutta </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 589 </td>
+
+<td> Eq. (19.221), the first set of nested brackets </td>
+
+<td> <i> <font size=+2>[</font>T<sup>a</sup><sub>m</sub>,
+    [T<sup>b</sup><sub>n</sub>,
+    <blink>T<sup>p</sup><sub>c</sub></blink>]<font size=+2>]</font> </i>
+</td> 
+
+<td> <i> <font size=+2>[</font>T<sup>a</sup><sub>m</sub>,
+    [T<sup>b</sup><sub>n</sub>,
+    <blink>T<sup>c</sup><sub>p</sub></blink>]<font size=+2>]</font> </i>
+</td>  
+
+<td> Augniva Ray, Saha Institute of Nuclear Physics, Calcutta </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 589 </td>
+
+<td> Eq. (19.222) </td>
+
+<td> <i>
+    f<sup>abd</sup> &delta;<sup>dc</sup>  &#x1d719;(m &plus; n) &plus;
+    f<sub>bcd</sub> &delta;<sup>da</sup>  &#x1d719;(n &plus; p) 
+    f<sup>cad</sup> &delta;<sup>db</sup>  &#x1d719;(p &plus; m) 
+</i> </td>
+
+<td> <i>
+    f<sup>abd</sup> &delta;<sup>dc</sup>  &#x1d719;(m &plus; n) &plus;
+    f<sup>bcd</sup> &delta;<sup>da</sup>  &#x1d719;(n &plus;
+    p) <blink> &plus; </blink>
+    f<sup>cad</sup> &delta;<sup>db</sup>  &#x1d719;(p &plus; m) 
+</i>  </td>
+
+<td> </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 604 </td>
+
+<td> 3rd line before Eq. (20.19) </td>
+
+<td> For the open <blink>ball</blink> <i>G</i> in <i>Y</i>, we
+find </td>
+
+<td> For the open <blink>set</blink> <i>G</i> in <i>Y</i>, we
+find </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 616 </td>
+
+<td> 1st line of text </td>
+
+<td> the rectangle marked 'B' is (<blink>150,</blink>185)&times; </td>
+
+<td> the rectangle marked 'B' is (<blink>120,</blink>185)&times; </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 617 </td>
+
+<td> Eq. (21.23) </td>
+
+<td> {<i>G &cap; S  <blink> &nbsp;  </blink> &forall;G &in; T</i>} </td>
+
+<td> {<i>G &cap; S  <blink> &#x2223;  </blink> &forall;G &in; T</i>} </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 619 </td>
+
+<td> Eq. (21.31) </td>
+
+<td> <i>U<blink>&in;</blink>Y</i> </td>
+
+<td> <i>U<blink>&subset;</blink>Y</i> </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 620 </td>
+
+<td> Eq. (21.38) </td>
+
+<td> Subset <i>U<blink>&in;</blink>Y</i> </td>
+
+<td> Subset <i>U<blink>&subset;</blink>Y</i> </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 626 </td>
+
+<td> Definition (21.18) </td>
+
+<td> there exist non-empty <blink></blink> subsets </td>
+
+<td> there exist non-empty <blink>open</blink> subsets </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 637 </td>
+
+<td> Eq. (22.23) </td>
+
+<td colspan=2> In the last line of the defintion of <i>H(s,t)</i>,
+  the function should be <i>f&#773;</i> instead of <i>f</i>.  </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 655 </td>
+
+<td> Definition (23.2) </td>
+
+<td> is a map  </td>
+
+<td> is a <blink>continuous</blink> map  </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 661 </td>
+
+<td> Eqs. (23.25) to (23.27) </td>
+
+<td colspan=2> Summation over the index <i>i</i> should range from 0
+  to <i>d</i>.  </td>
+
+<td> Joydeep Sarkar, Channai Mathematical Institute </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 662 </td>
+
+<td> Text before Eq. (23.30) </td>
+
+<td> The most general element of <i>C<sub>1</sub>(X)</i> is given
+  already in Eq. <blink>(23.26)</blink>.  </td>
+
+<td> The most general element of <i>C<sub>1</sub>(X)</i> is given
+  already in Eq. <blink>(23.25)</blink>.  </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 664 </td>
+
+<td> Eqs. (23.43) & (23.45) </td>
+
+<td colspan=2> The right side of Eq. (23.43) is really the image of
+  &#8706;<sub>2</sub> and not its kernel.  The kernel can be obtained by
+  equating the right side of Eq. (23.35) to zero, which
+  gives <i>p</i>=0.  Ths means that the kernel is trivial: <blink>ker
+  (&#8706;<sub>2</sub>) = {0}</blink>.  Using Eq. (23.44) now, one
+  obtains <blink><i>H</i><sub>2</sub>(<i>D</i><sup>2</sup>) = {0}/{0} =
+  {0}</blink>.
+</td>
+
+<td> Joydeep Sarkar, Channai Mathematical Institute </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 684 </td>
+
+<td> Answer of Ex. 14.8 </td>
+
+<td> 8, 10, 10, 6 </td>
+
+<td> 8, 15, 15, 6 </td>
+
+<td> Augniva Ray, Saha Institute of Nuclear
+  Physics, Calcutta </td>
+
+</tr>
+
+<!---------->
+
+
+<!---------->
+
+<tr>
+
+<td>  </td>
+
+<td>  </td>
+
+<td>  </td>
+
+<td>  </td>
+
+<td>  </td>
+
+</tr>
+
+<!---------->
+
+
+</table>
+
+<!------------------------------>
+
+
+<center>
+<h3>
+Errors in other places</h3></center>
+
+<center><table BORDER WIDTH="100%" >
+<tr BGCOLOR="#00B0B0">
+<th WIDTH="5%">Page</th>
+
+<th WIDTH="20%">Where</th>
+
+<th WIDTH="25%">Replace</th>
+
+<th WIDTH="25%">by</th>
+
+<th WIDTH="25%">Thanks go to</th>
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 16 </td>
+
+<td> line before Eq. (2.7) </td>
+
+<td> assume the statement is true <blink> of </blink> all values </td>
+
+<td> assume the statement is true <blink> for </blink> all values </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 19 </td>
+
+<td> line before Eq. (2.7) </td>
+
+<td> means the <blink> elements </blink>  </td>
+
+<td> means the <blink> element </blink>  </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 25 </td>
+
+<td> 3rd line of the penultimate paragraph </td>
+
+<td> consists <blink> only </blink>  elements </td>
+
+<td> consists <blink> only of </blink>  elements </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 28 </td>
+
+<td> 1st sentence of Sec. 2.2.3 </td>
+
+<td> <blink> algbraic </blink> structures. </td>
+
+<td> <blink> algebraic </blink> structures. </td>
+
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 48 </td>
+
+<td> 1st sentence of 2nd paragraph </td>
+
+<td> all integers are also <blink> algbraic </blink> inegers. </td>
+
+<td> all integers are also <blink> algebraic </blink> inegers. </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 50 </td>
+
+<td> Ex. 3.12, 2nd line </td>
+
+<td>  <blink> form </blink> a ring. </td>
+
+<td>  <blink> forms </blink> a ring. </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 54 </td>
+
+<td> 4th line above Eq. (3.54) </td>
+
+<td>  <blink> This </blink> scalars </td>
+
+<td>  <blink> These </blink> scalars </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 69 </td>
+
+<td> 2nd paragraph, 3rd line </td>
+
+<td> and <blink> is </blink> also linearly independent </td>
+
+<td> and <blink> are </blink> also linearly independent </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 115 </td>
+
+<td> Line after Eq. (5.166) </td>
+
+<td> are obviously Hermitian. </td>
+
+<td> <blink> Both matrices </blink> are obviously Hermitian. </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 164 </td>
+
+<td> 1st line of text </td>
+
+<td> rpresentation </td>
+
+<td> r<blink>e</blink>presentation </td>
+
+<td> Augniva Ray, Saha Institute of Nuclear
+  Physics, Calcutta  </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 211 </td>
+
+<td> 3rd line in Section 8.8 </td>
+
+<td> ABCD <blink>form</blink> a permutation </td>
+
+<td> ABCD <blink>forms</blink> a permutation </td>
+
+<td>  </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 237 </td>
+
+<td> Section 9.5.1, end of 1st paragraph </td>
+
+<td> the matrices <i>UR<sub>i</sub>U<sup>&dagger;</sup></i>
+  <blink>does</blink> the same </td>
+
+<td> the matrices <i>UR<sub>i</sub>U<sup>&dagger;</sup></i>
+  <blink>do</blink> the same </td>
+
+<td> </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 249 </td>
+
+<td> Section 9.5.1, end of 1st paragraph </td>
+
+<td> the commutators in <blink>generals</blink>  </td>
+
+<td> the commutators in <blink>general</blink>  </td>
+
+<td> Inayat R. Bhat </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 319 </td>
+
+<td> The sentence leading to Eq. (11.40) </td>
+
+<td> A closely related group <blink> are </blink> groups of
+  transformations </td>
+
+<td> A closely related group <blink> contains </blink> groups of
+  transformations </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 320 </td>
+
+<td> second line before Eq. (11.45) </td>
+
+<td> given in <blink>Eq. (11.29)</blink> </td>
+
+<td> given in <blink>Eq. (11.28)</blink> </td>
+
+<td> </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 341 </td>
+
+<td> last paragraph of the inset </td>
+
+<td> symmetry properties of Eq. (12.52) <blink> holds. </blink> </td>
+
+<td> symmetry properties of Eq. (12.52) <blink> hold. </blink> </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 349 </td>
+
+<td> 4th line after Eq. (12.89) </td>
+
+<td> this information is <blink> uselss </blink> </td>
+
+<td> this information is <blink> useless </blink> </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 388 </td>
+
+<td> last line </td>
+
+<td> the reduced <i>d</i>-<blink>matirx. </blink> </td>
+
+<td> the reduced <i>d</i>-<blink>matrix. </blink> </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 402 </td>
+
+<td> line after Eq. (14.51) </td>
+
+<td> assign<blink>em</blink>nt </td>
+
+<td> assign<blink>me</blink>nt </td>
+
+<td>  </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> 667 </td>
+
+<td> 3rd line in the paragraph after the definition </td>
+
+<td> Similarly, a 2-<blink>simples </blink> </td>
+
+<td> Similarly, a 2-<blink>simplex </blink> </td>
+
+<td> Viktor Skorniakov, Vilnius University </td>
+
+</tr>
+
+<!---------->
+
+<tr>
+
+<td> </td>
+
+<td> </td>
+
+<td> </td>
+
+<td> </td>
+
+<td> </td>
+
+</tr>
+
+<!---------->
+
+</table>
+
+</body>
+</html>
