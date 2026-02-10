@@ -1,0 +1,423 @@
+<html>
+
+<p style="font-size:70%">
+Time-stamp: <2022-07-09 10:16:10 pbpal>
+
+
+<TITLE> bangtex </TITLE>
+<body bgcolor="#7aabcc" vlink="cyan" link="yellow" alink="fuchsia"
+style="font-family:times-roman;font-size:100%;color:black">
+<hr>
+
+<h1 style="color:yellow"> 
+Bangtex : A package for typesetting documents in Bangla using the
+Tex/Latex systems</h1>
+
+<hr>
+
+Created by Palash B. Pal </font>
+
+<hr>
+First released: January 2001.<br> Latest update: See time-stamp at top
+of the page.<br> (Check <a href="#update">updating information</a>
+below.)
+<hr>
+
+<font size=4>
+Sections on this page: <a href="#sample">Sample output</a>,
+<a href="#dl+inst">Downloading and installation</a>, 
+<a href="#supp">Supporting software</a>, 
+<a href="#update">Updating information</a>, 
+<a href="#netgroup"><tt>bangtex</tt> group on the internet</a>
+
+<hr>
+<h3><a name="sample"><font color="#f0ff00">Sample output</font></h3> 
+
+I know you should not be interested in the package unless you see the
+output. So click here to view or download a sample page of text (<a
+href="samples/samptex.ps">ps</a> / <a
+href="samples/samptex.pdf">pdf</a>) or letter (<a
+href="samples/samplett.with.ps">ps</a> / <a
+href="samples/samplett.with.pdf">pdf</a>).  If, after viewing them,
+you are interested in downloading it, read on. The software is free.
+
+
+<hr>
+<h3><a name="dl+inst"><font color="#f0ff00"> Downloading and
+installation</font></h3> 
+
+<p>
+<h4>Prerequisites:</h4>
+<ol>
+<li>
+The basic bangtex files have a total size of about 68 kb in zipped
+form. The postscript font package is about 230 kb.  Once you unzip them
+(follow the instructions to find out when and where to unzip), they
+will take a total of about 500 kb space on your disk. You need that
+much free space on your disk to begin with. Then, if you write
+documents using the program, they will take disk space according to
+the length of the document.
+
+<li> You will have to have Tex/Latex installed on your system. The
+Bangla font and style files can run only with their help.
+
+<li> You need to have a working knowledge of Tex/Latex. By "working
+knowledge", I mean that you should know how to produce a printout (or
+a screen-image) if you have a source file for Tex/Latex. Bits and
+pieces of this knowledge should be available from the installation
+guidelines, but they are not meant to be complete.
+
+<li> For Unix/Linux systems, you should have the <tt><b> tar</b></tt>
+command working in order to unpack the files. For Windows systems, you
+should have <tt><b>WinZip</b></tt> for unpacking the files.
+
+</ol>
+
+<p>
+
+<h4>Instructions: </h4>
+<ol>
+<li> Download the following files and keep them in any directory. I
+suggest that you create a separate directory for this purpose so as
+not to erase any files with the same names that might exist
+in your existing directories. Windows users might choose to keep them
+on the Desktop.
+<ul>
+<li> <a href="bfonts.tar.gz">bfonts.tar.gz</a>
+<li> <a href="bsty.tar.gz">bsty.tar.gz</a>
+<li> <a href="bsample.tar.gz">bsample.tar.gz</a>
+</ul>
+<p>
+
+<li> I recommend that you read through the end of this page before
+performing the installation.  In particular, read carefully through
+the section on "Supporting software".  You might want to download some
+of them as well.  Near the bottom of this page, you will find
+directions for the installation procedure.<p>
+
+<p>
+
+<li> At the end of the installation procedure, you will find how to
+print out a copy of the manual for typesetting in Bangla.
+
+</ol>
+
+<p>
+
+<hr>
+<h3><a name="supp"><font color="#f0ff00">Supporting software
+</font></h3> 
+
+Since the time <tt>bangtex</tt> was first introduced, many people have
+contributed towards making it better and more user-friendly.  Some of
+these contributions come as suggestions which have been implemented
+into the basic <tt>bangtex</tt> package.  Some others have created
+supporting packages.  While none of these are absolutely essential for
+the basic functioning of <tt>bangtex</tt>, they are all recommended
+because they make <tt>bangtex</tt> work much better: either the output
+or the input.  Here are some of those, with a brief description of
+each.
+
+<ol>
+<li> The <i><b>bpsf</b></i> package, created by <a
+href="mailto:ananda_samaddar@yahoo.co.uk">Ananda Kumar Samaddar</a>.
+These are postscript fonts for <tt>bangtex</tt>.  If you want to get a
+feel for what it does, see the postscript files created from the same
+latex file, with (<a href="samples/samplett.with.ps">ps</a> / <a
+href="samples/samplett.with.pdf">pdf</a>) and without (<a
+href="samples/samplett.without.ps">ps</a> / <a
+href="samples/samplett.without.pdf">pdf</a>) using these fonts.  If
+you are convinced of the merits of using the postscript fonts after
+seeing these samples, download the file
+
+<ul> 
+<li> <a href="support/bpsf.tar.gz">bpsf.tar.gz</a> 
+</ul> 
+
+Keep it in the directory where you have kept the earlier files.
+
+
+<li> The program <i><b>seicor</b></i>, created by Somendra Mohan
+Bhattacharjee.  This is a unix/linux shell program which allows you to
+write the input file with much less effort.  If you have used
+<tt>bangtex</tt> before, you will appreciate the advantage of using
+this file by looking at the instruction page for <a
+href="support/readme_sei.pdf">seicor</a>.  This is a pdf file. <p>
+
+If you have never used <tt>bangtex</tt> before, probably it is
+difficult to explain the advantage gained by using
+<i><b>seicor</b></i>.  Roughly speaking, it makes typing of Bangla
+text faster and easier.  In Bangla, some of the vowel signs go to the
+left of the associated consonant.  For example, if you want to write
+"pen", the order of the characters appearing in Bangla type is "epn".
+But if you type it in the latter form, it is hard to recognize the
+word as "pen" on the screen.  Normal <tt>bangtex</tt> provides a
+solution whereby you can typeset it as "\*p*en".  If you use
+<i><b>seicor</b></i>, you can typeset this word as "pen" in your input
+tex file, run <i><b>seicor</b></i> on it, and the output contains
+"\*p*en".  Then you run LaTeX on the resulting file.<p>
+
+It is recommended that you download <i><b>seicor</b></i>:
+
+<ul> 
+<li> <a href="support/seicor">seicor program </a> 
+<li> <a href="support/readme_sei.pdf">seicor instructions</a> 
+</ul> 
+
+Keep it in the directory where you have kept the earlier files.
+
+<li> The program <i><b>mkbangtex</b></i>, created by Koushik Ray.  It
+is also a preprocessor for bangtex.  In other words, writing
+bangla would be much simpler if you use this program.  You create a
+file using mkbangtex rules (which are simpler than usual bangtex), run
+mkbangtex on the file, and your output is a bangtex file with the
+usual bangtex symbols and syntax.
+
+<p>
+
+Like in seicor, you will not need to use the bangtex \* commands for
+i-kar, e-kar etc.  In addition, you do not have to use many of the
+capitalizations which are needed in bangtex.  For example, "ataeb",
+after running mkbangtex, turns to "AtoEb", which is usual bangtex.
+
+<p>
+
+To learn more about the program and to download it, <a
+href="http://www.ctan.org/tex-archive/language/bengali/mkbangtex/">click
+here</a>.
+
+
+<li> A front-end for bangtex created by
+  <a href="mailto:takdoom@gmail.com">Abhijit Dasgupta</a>.  
+It enables one to type directly in Bangla, using any Unicode
+text-editor and font.  Of course, the TeX/LateX commands will have to
+use ASCII characters, but whenever you want to type Bangla text, you
+can directly see it on the screen, without any processing of the file.
+The details can be found
+by <a href="http://dasgupab.faculty.udmercy.edu/uni2bangtex/index.html">
+clicking here</a>.
+
+<li> A software for unicode conversion from bangtex,
+  called <i><b>sei2uni</i></b>, developed by Proyag Pal and Palash
+  Baran Pal.  It is a perl program.  It operates on a bangtex file
+  written in the almost-phonetic form by using the \* commands, or the
+  seicor version in which the \* commands are suppressed.  The output
+  is a unicode file for everything except commands and formatting
+  statements.
+
+  <p>
+
+    To learn more about the program and to download it, <a
+href="https://gist.github.com/Proyag/2f78e6ad27ea5b717983f2dff5e1844f">click
+      here</a>.
+
+</ol>
+
+
+<hr>
+<h3><a name="update"><font color="#f0ff00">Updating information
+</font></h3> 
+
+<h4> April 2001 update </h4>
+<ol>
+<li> Original release had only the class file <tt>bbook.cls</tt>,
+suitable for books. This release has, in addition,
+<tt>barticle.cls</tt> and <tt>bletter.cls</tt>, suitable for articles
+and letters, respectively. A new sample file has also been added to
+illustrate the use of the bletter class.
+
+<li> The <tt>bbook.cls</tt> class file did not have the sectioning
+commands properly. The <tt>\chapter</tt> command was okay, but the
+commands for <tt>\section, \subsection</tt> etc were not. It has been
+fixed in the present update.
+
+<li> Some typesetting exceptions, mainly regarding <i>na-fala</i>, have
+been made regular. See manual for details.
+</ol>
+
+<h4> January 2002 update </h4>
+<ol>
+<li> Now <tt>bangtex</tt> is Windows compatible. The instructions for
+downloading in Windows have been added.
+<li> Nothing has changed for a Unix/Linux user except that in a very
+few cases, the shape of some letters have been changed a bit in order
+to make the fonts Windows compatible. The changes are imperceptible
+for all practical purposes.
+</ol>
+
+<h4> December 2002 update </h4>
+<ol>
+<li> Bangla can now be used in the math mode.
+<li> The manual is bigger now, containing instructions for the math
+mode, and some other frequently asked questions on earlier versions.
+<li> Shapes of a few characters changed. The changes will be
+imperceptible to the eye.  But, with these changes, it is easier to
+create fonts of arbitrary size.
+</ol>
+
+
+<h4> March 2003 update </h4>
+<ol>
+<li> Bangtex now comes with postscript fonts.  These fonts have been
+created by <a href="mailto:ananda_samaddar@yahoo.co.uk">Ananda Kumar
+Samaddar</a>.  All the credits should go to him, and I thank him for
+allowing me to include these fonts in the main bangtex distribution.
+Any question, comment and appreciation on these fonts should be sent
+to him directly by clicking on his name above.
+</ol>
+
+
+<h4> August 2003 update </h4>
+<ol>
+<li> A new set of fonts introduced.  These are hollow  fonts, or
+outline fonts, i.e., the output will contain only the outline of a
+charater.  The inside will be hollow.
+
+<li> Some shortcuts introduced in typesetting. For example,
+<tt>NG/g</tt> can now also be typeset simply as <tt>n/g</tt>.
+Similarly, <tt>NG/k</tt> as <tt>n/k</tt>, <tt>NJ/c</tt> as
+<tt>n/c</tt>, <tt>NJ/j</tt> as <tt>n/j</tt> etc.  The manual gives 
+details. 
+</ol>
+
+
+<h4> December 2005 update </h4>
+<ol>
+
+<li> The program <i><b>seicor</b></i> introduced.  It has been created
+by <a href="mailto:somen@iopb.res.in"> Somendra Mohan
+Bhattacharjee</a>.  All the credits should go to him, and I thank him
+for allowing me to include this program in the main bangtex
+distribution.  Any question, comment and appreciation on the program
+should be sent to him directly by clicking on his name above.
+
+</ol>
+
+
+<h4> April 2008 update </h4>
+<ul>
+
+<li> The program <i><b>mkbangtex</b></i> linked.  It has been created
+by <a href="mailto:koushik@iacs.res.in"> Koushik Ray</a> some time
+ago, and he deserves all credits for it.  Any question, comment and
+appreciation on the program should be sent to him directly by clicking
+on his name above.
+
+
+</ul>
+
+
+
+<h4> July 2009 update </h4>
+<ul>
+
+<li> The file <i>banglig.mf</i> changed so that the conjunct 
+<tt>j+jh</tt> can be obtained by typing <tt>j/jh</tt>.  If you already 
+have <i>bangtex</i> installed on your computer and want only to change 
+<i>banglig.mf</i> with its new version, <a href="changed/banglig.mf">click 
+here.</a>  Save the file in the same location where you had a file 
+with the same 
+name.  Then you need to erase all files of type <i>bang*tfm</i> and 
+<i>bang*pk</i> in order the changes can take effect.  The tfm and pk 
+files will be automatically recreated by your computer when you will use 
+<i>bangtex</i> next time.
+
+
+</ul>
+
+
+<h4> October 2010 update </h4>
+<ul>
+
+<li> Link made to an unicode editor for bangtex. It has been created
+  by <a href="mailto:takdoom@gmail.com">Abhijit Dasgupta</a>, and he deserves all credits for it.  Any question, comment and
+appreciation on the program should be sent to him directly by clicking
+on his name above.
+
+</ul>
+
+
+
+<h4> February 2021 update </h4>
+<ul>
+
+  <li> Link made to a perl program that converts bangtex files to
+  unicode Bangla.  It has been created by Proyag Pal and Palash Baran
+  Pal.  Link to this software is given above.
+
+</ul>
+
+<hr>
+
+Do you want to install <tt>bangtex</tt> now? <a
+href="install.html">Click here</a>. 
+
+<hr>
+
+
+<h3><a name="netgroup"><font color="#f0ff00"><i><b>bangtex</b></i>
+group on the internet</h3> 
+Starting July 2003, there is a group on the  internet which discusses
+various issues  related to <i><tt><b>bangtex</b></tt></i>.  The
+membership to this group is open, and free.
+
+<p>
+You can join this group. This is what you can do as a member of the
+group: 
+
+<ul>
+<li> Take part in discussion about future projects related to
+bangtex.  This can help you or others in  developing new software
+related to bangtex, and in making bangtex better.
+
+<li> You can just read the discussion taking place in the group.
+
+<li> You can receive announcements related to bangtex.  For example,
+when a new version will be released, or some software related to
+bangtex will be released, you can get a message through e-mail.
+
+</ul>
+You can choose what kind of involvement you want to have. For example,
+if you only want to receive the important annoucements, you can choose
+it as an option.
+
+<p>
+If you want to join this internet group, simply fill out this 1-line
+form. 
+
+
+
+<form method=GET action="http://uk.groups.yahoo.com/subscribe/bangtex">
+<table align="center" cellspacing=0 cellpadding=2 border=0
+bgcolor=#00c0a0> 
+  <tr>
+<td colspan=2 align=center>
+  <b>Subscribe to bangtex</b>
+</td>
+  </tr>
+  <tr>
+<td>
+  <input type=text name="user" value="enter email address" size=20>
+</td>
+<td>
+  <input type=image border=0 alt="Click here to join bangtex"
+name="Click here to join bangtex"src="/img/i/uk/ui/join.gif">
+</td>
+  </tr>
+  <tr align="center">
+<td colspan="2">
+   Powered by<a href="http://uk.groups.yahoo.com/">uk.groups.yahoo.com</a>
+</td>
+  </tr>
+</table>
+</form>
+<P>
+
+
+<p align="center">
+This page is created and maintained by <a
+href="mailto:palashbaran.pal@saha.ac.in">Palash B. Pal</a> 
+<br> Click on the
+name to send a message if you find some bug or have any other comment.
+
+</html>

@@ -1,0 +1,868 @@
+<html>
+<font size="-1">
+Time-stamp: <2020-07-04 10:40:52 pbpal>
+<hr>
+
+
+<head>
+<style type="text/css">
+H1 {color: blue; background: rgb( 219, 219, 159); 
+font-size: 180%; padding: 20px; text-align: center}
+H3 {color: red; background: rgb( 179, 219, 219); 
+font-size: 120%; padding: 10px; text-align: right; }
+H4 {background: white; color: magenta; text-align: center;
+font-family: courier; } 
+ol {background-color: rgb( 250, 211, 145);  
+padding: 25px 25px 20px 60px; }
+ul {background-color: rgb( 240, 191, 125);  
+padding: 5px 25px 5px 30px; }
+
+dfname {color: rgb(144, 0, 100); background-color: rgb(0,200,200);
+font-weight: bolder;}
+
+comm {font-weight: bolder; align-content: center; font-family: courier; }
+
+
+</style>
+</head>
+
+
+
+<title>bangtex installation</title>
+
+<a name="top"></a>
+
+<body bgcolor="#ddcc77" vlink="white">
+<font size="+2">
+
+
+
+<h1> How to install bangtex </h1>
+
+<h2> Palash Baran Pal </h2>
+
+
+
+<hr>
+
+Bangtex First released January 2001<br>
+Latest revision August 2003 <br>
+Latest revision of this help page July 2020 
+
+<hr>
+<p align="right">
+<a href="bangtex.html">Go to the main bangtex page</a>
+</p>
+
+
+<h1> Contents </h1>
+<a href="#linux">Installation in Linux systems</a><br>
+<a href="#nonsu">Installation for non-superusers in Linux</a><br>
+<a href="#unix">Installation on Unix systems</a><br>
+<a href="#psfonts">Installation of Postscript fonts</a><br>
+<a href="#seicor">Installation of seicor</a><br>
+<a href="#window">Installation on Windows systems</a><br>
+<a href="#mac">Installation on Mac systems</a><br>
+<a href="#advice">Words of advice for all systems</a><br>
+
+
+
+
+
+
+<hr>
+
+<h1><a name="linux">Installation in Linux systems</a></h1>
+
+<h2>The necessary files</h2>
+
+When you are reading this, you must have already downloaded the
+following files from the source of bangtex:<br>
+
+<ul> <font color="green">
+<li> bfonts.tar.gz
+<li> bsty.tar.gz
+<li> bsample.tar.gz
+</font> </ul>
+
+
+If you have not, please go back to the source of bangtex by 
+
+<a href="bangtex.html">
+clicking here</a>
+
+
+and download these files. Save them in any directory. For the sake of
+definiteness, we will call this directory <dfname>
+/BT</dfname>. This can be a directory in a user's area, or in the
+system area.
+
+These are all tarred zipped files. You need to unzip them before they
+can be used. But first, we need to identify the directory where they
+ought to be unzipped.
+
+
+<h2>Identifying a certain directory</h2>
+
+For this, you need to be the superuser.  (If you do not have access to
+the superuser account, you have to go to a <a href=#nonsu>different
+section</a>.) Log in as the superuser. Go to the topmost directory
+(usually denoted just by a `/') and issue the command
+
+<h4> find -name cmr10.mf </h4>
+
+
+This will tell you where the file cmr10.mf is located. This is one of
+the files in the <font color="magenta">
+TeX</font>/<font color="magenta"> LaTeX</font> distribution system. If
+the computer cannot find this file, there is something wrong with the
+installation of <font color="magenta">
+TeX</font>/<font color="magenta"> LaTeX</font> in your system. In this
+case, forget about installing bangtex and rather
+have <font color="magenta"> TeX</font>/<font color="magenta">
+LaTeX</font> installed in your computer properly. In the rest, I
+assume that this is not the case, and the computer has given you some
+reply to the <dfname> find</dfname> command issued
+above. Unfortunately, the answer would vary from computer to computer,
+depending on the version and distribution of <font color="magenta">
+TeX</font>/<font color="magenta"> LaTeX</font> installed. However, all
+answers should have the following generic structure:
+
+<h4> /AAA/texmf/fonts/source/public/cm/cmr10.mf </h4>
+
+where <dfname> /AAA</dfname> is a symbolic representation. This is the
+part which varies from one computer to another. For example, on one
+computer that I use frequently, <dfname> /AAA</dfname> is
+<dfname>/usr/share</dfname>. This means that the answer to the `find'
+command on this computer should yield
+
+<h4> /usr/share/texmf/fonts/source/public/cm/cmr10.mf </h4>
+
+But in another computer, the answer could be
+
+<h4> /usr/lib/teTeX/texmf/fonts/source/public/cm/cmr10.mf </h4>
+
+which would mean that <dfname> /AAA</dfname> is <dfname>
+/usr/lib/teTeX</dfname> on this computer. Whatever it may be, you need
+to remember the name of the <dfname> /AAA</dfname> directory for the
+rest of the installation. In everything that follows, replace <dfname>
+/AAA</dfname> by the name of the directory that you have just
+determined for your computer.
+
+
+<h2>Installing the font files</h2>
+
+Go to the directory
+
+<dfname> /AAA/texmf/fonts/source</dfname>
+
+by issuing the command
+
+<h4> cd &nbsp; &nbsp;/AAA/texmf/fonts/source </h4>
+
+where <dfname> /AAA</dfname> stands for the directory/subdirectory
+determined above. In this directory, copy the file <dfname>
+bfonts.tar.gz</dfname> (which was originally stored in the directory
+called <dfname> /BT</dfname>) by issuing the command
+
+<h4> cp &nbsp; -p &nbsp;/BT/bfonts.tar.gz &nbsp; &nbsp; . </h4>
+
+(Don't forget the dot at the end!)
+And then unpack the contents of the zipped file by giving the command 
+
+<h4> tar xvfz bfonts.tar.gz </h4>
+
+This command will create a subdirectory for keeping the bangla font
+files, unpack the font files and keep them there.
+
+
+
+
+<h2>Installing the macro files for <font color="magenta"> LaTeX</font></h2>
+
+<font color="magenta"> LaTeX</font> needs extra macro files for formatting a document. For a
+document written in Bangla, we need to have the macros such that the
+headings for chapters, sections, etc appear in Bangla, and so do the
+captions for tables and figures. For this, extra files need to be
+installed. 
+
+You now need to go to another directory. Issue the command
+
+<h4> cd &nbsp; -p &nbsp;/AAA/texmf/tex/latex </h4>
+
+where, as before, <dfname> /AAA</dfname> is symbolic here.  In this
+directory, copy the file <dfname> bsty.tar.gz</dfname> (which was
+originally stored in the directory called <dfname> /BT</dfname>) by
+issuing the command
+
+<h4> cp &nbsp; -p &nbsp; /BT/bsty.tar.gz . </h4>
+
+And then unpack the contents of the zipped file by giving the command 
+
+<h4> tar xvfz bsty.tar.gz </h4>
+
+This command will create a subdirectory for keeping the bangla font
+files, unpack the font files and keep them there.
+
+
+<h2>If you are updating...</h2>
+
+If this is the first time you are installing bangtex on your computer,
+ignore this part and go to the <a href="#lininit">next section</a>. If
+you already have an earlier version of bangtex installed, you must
+eliminate some files of that earlier version so that the new ones
+work.
+
+For this, you need to identify two more directories. Go to the topmost
+directory and issue the commands in succession:
+
+<h4> find &nbsp; / &nbsp; -name &nbsp; bang*.tfm<br>
+     find &nbsp; / &nbsp; -name &nbsp; bang*.*pk</h4>
+
+Suppose they show you that you have some <dfname> tfm</dfname> files in the
+directory <dfname> /TTT</dfname> and some <dfname> pk</dfname> files in the directory <dfname>
+PPP</dfname>. Then issue the commands
+
+<h4> rm &nbsp; -f &nbsp; /TTT/bang*.tfm<br> 
+rm &nbsp; -f &nbsp; /PPP/bang*.*pk</h4>
+
+
+Of course the directory names are symbolic, and you need to substitute
+the real names in the commands.
+
+
+
+<h2><a name="lininit"></a>Initializing the files</h2>
+
+You now have all the files in their proper places. You still have to
+pass on this information to the computer. In other words, when the
+computer will run <font color="magenta"> TeX</font> or <font color="magenta"> LaTeX</font>, it should know to look for the files
+in these locations. This can be done by going to the top directory
+through the command
+
+<h4> cd &nbsp; &nbsp;/ </h4>
+
+and issuing the command
+
+<h4> texhash </h4>
+
+You will see the names of a lot of files flashing on the
+screen. Finally, when it is done, the installation is complete.
+
+If for some reason, <dfname> texhash</dfname> does not work, you can
+instead issue the command
+
+<h4> texconfig </h4>
+
+This will open a window with many options. You can choose the option
+
+<h4> rebuild ls-R database </h4>
+
+with the arrow keys on your keyboard and hit the <dfname>
+enter</dfname> key. This has the same effect as the command <dfname>
+texhash</dfname>. Once you are done, choose the <dfname> exit</dfname>
+option and hit return to exit <dfname> texconfig</dfname> and finish
+installation.
+
+
+<h2><a name="check"></a>Checking the installation</h2>
+
+As we mentioned, all the operations mentioned after the downloading of
+the source files must be performed by logging in as the superuser. Now
+that the installation is complete, this restriction does not apply any
+more. In fact, any user now should be able to use the Bangla fonts.
+
+To know how to do that as well as to check that the installation was
+successful, we have provided some sample files in <dfname>
+bsample.tar.gz</dfname>, which includes the manual. So, in any
+directory where the file <dfname> bsample.tar.gz</dfname> resides,
+issue the command
+
+<h4> tar xvfz bsample.tar.gz </h4>
+
+As this unpacks, you will see the names of some files, including one
+called <dfname> manual.tex</dfname>. This is a <font color="magenta">
+LaTeX</font> file containing the manual. Run <font color="magenta">
+LaTeX</font> on it:
+
+<h4> latex manual </h4>
+
+In the process, you will see the computer creating the fonts. It might
+give some error messages during this stage. Ignore them. None of them
+is serious. 
+
+When it is done, you can see the <dfname> dvi</dfname> file on the
+screen or print it out as you would print any file formatted by <font
+color="magenta"> LaTeX</font>. This will give you instructions about
+how to use the Bangla fonts. See also the other files that came out of
+<dfname> bsample.tar.gz</dfname> in order to learn various features of
+creating a Bangla document.  Before leaving this page, please read the
+sections on the <a href="#psfonts">installation of postscript
+fonts</a>, and on some <a href="#advice">advisory remarks</a> which
+also appear on this page.
+
+<p align="right"><a href="#top">Top of page</a>
+
+
+
+<hr>
+
+<h1><a name="nonsu">Installation for non-superusers in Linux</a></h1>
+
+If you do not have the power of the superuser, you can still use
+bangtex, but with some restrictions. The installation in this case is
+easier.  You merely download the following files in a directory<br>
+
+<ul> <font color="green">
+<li> bfonts.tar.gz
+<li> bsty.tar.gz
+<li> bsample.tar.gz
+</font> </ul>
+
+If you have not done so already, do it now from the source of bangtex by 
+
+<a href="bangtex.html">
+clicking here</a>.
+
+
+We suggest that you keep them in a directory where there are no other
+files.  Now unpack them, issuing the command
+
+<h4> tar &nbsp; xvfz &nbsp; b*.tar.gz </h4>
+
+This completes the installation. You can now <a href="#check">check
+the installation</a> and try to print out the manual for using
+bangtex.  Before leaving this page, please read the sections on the <a
+href="#psfonts">installation of postscript fonts</a>, and on some <a
+href="#advice">advisory remarks</a> which also appear on this page.
+
+<p> 
+
+Although the installation is much simpler this way, there is a serious
+disadvantage of this method. You will be able to use bangtex
+<u>only</u> in the directory where you had unpacked the tarred files
+mentioned above. You cannot use it even from any other directory in
+your own user area.  Needless to say, we recommend that you do not
+install bangtex this way unless all possibilities of getting superuser
+access fails.
+
+<p align="right"><a href="#top">Top of page</a>
+
+
+
+
+
+<hr>
+
+<h1><a name="unix">Installation on Unix systems</a></h1>
+
+You need to follow the instructions provided for Linux
+systems. The only difference is in unpacking the downloaded files. For
+example, when you come to the stage in the installation where you have
+to unpack the file <dfname> bfonts.tar.gz</dfname>, issue the series of
+commands
+
+<h4> gunzip bfonts.tar.gz<br>
+ tar -xvf bfonts.tar</h4>
+
+Keeping this in mind, go to the section on <a href="#linux">Linux
+systems</a>.
+
+<p align="right"><a href="#top">Top of page</a>
+
+
+
+
+
+<hr>
+
+<h1><a name="psfonts">Installation of Postscript fonts</a></h1>
+
+The postscript fonts, as well as the related instruction material, has
+been created by <a href="mailto:ananda_samaddar@yahoo.co.uk">Ananda
+Kumar Samaddar</a>.  I thank him for allowing me to include this
+program in the main bangtex distribution.<p>
+
+
+The entire package can be downloaded as a single tarred & zipped file
+called <font color="green">bpsf.tar.gz</font>. If you have not already
+downloaded this file, please go back to the source of bangtex by
+
+<a href="bangtex.html">
+clicking here</a>
+
+and download it.  I assume that you have kept it in the directory we
+have denoted by <dfname>/BT</dfname>.  Go to that directory and issue
+the command
+
+<h4> tar xvfz bpsf.tar.gz </h4>
+
+Once this is done, you will notice that a new subdirectory called
+<dfname>bpsf</dfname> has been created under the directory
+<dfname>/BT</dfname>.  It should contain 11 files.  Go
+through the file called <dfname>README</dfname> first.
+That should answer other questions like how the postscript fonts have
+to be installed, and why they are useful.  Any question, comment and
+appreciation on the installation or use of this program should be sent
+directly to the its creator by clicking on his name above.<p>
+
+
+
+<hr>
+
+<h1><a name="seicor">Installation of <i><b>seicor</b></i></a></h1>
+
+This program has been created by <a href="mailto:somen@iopb.res.in">
+Somendra Mohan Bhattacharjee</a>.  I thank him for allowing me to
+include this program in the main bangtex distribution.<p>
+
+If you have not already downloaded <i><b>seicor</b></i>, I recommend
+that you go back to the source of bangtex by
+
+<a href="bangtex.html">
+clicking here</a>
+
+and download it.  Then click here on the name of the program <a
+href="support/howtoinstall.txt"><i><b>seicor</b></i></a> to find out
+how to install it.  Once installed, you can also see some <a
+href="support/readme_sei.pdf">detailed instructions</a> about its use.
+Any question, comment and appreciation on the installation or use of
+this program should be sent directly to the its creator by clicking on
+his name above.<p>
+
+
+<hr>
+
+<h1><a name="window">Installation on Windows systems</a></h1>
+<p align=right> (Courtesy: Pradipta Bandopadhyay)
+
+<h2>Prerequisites</h2>
+
+In the instructions below, I am assuming that you are using the
+<font color="magenta">MikTeX</font> installation of <font color="magenta"> TeX</font> and <font color="magenta"> LaTeX</font>. Though not absolutely
+essential, I recommend that you get some familiarity with the program
+itself if you do not have it already, without worrying about the
+Bangla files or fonts.
+
+Now, to use the Bangla fonts, first make sure that you have already
+downloaded the following files from the source of bangtex:<br>
+
+<ul> <font color="green">
+<li> bfonts.tar.gz
+<li> bsty.tar.gz
+<li> bsample.tar.gz
+</font> </ul>
+
+If you have not, please go back to the source of bangtex by 
+
+<a href="bangtex.html">
+clicking here</a>
+
+
+and download these files. Save them on your Desktop. Don't be bothered
+if they clutter your Desktop. Once the installation is complete, you
+can delete them.
+
+
+<h2>Identifying a certain directory</h2>
+
+In everything that follows in this section, a click should mean
+clicking the left button of the mouse. Start by the following clicks:
+
+<p align="center">
+<table border=4 padding=3 bgcolor="cyan">
+<tr>
+<td>Start</td> 
+<td>Find </td>
+<td>Files or Folders</td></tr></table>
+</p>
+
+It means that you start by clicking the <blink>Start</blink> button at
+the lower left corner of the screen with the left button of your
+mouse. Among the possibilities which open up, choose the
+<blink>Find</blink> option, followed by <blink>Files or
+Folders</blink> by clicking on them. This kind of abbreviation for
+clicks will be used throughout this section.
+
+The clicks described above will open a box where you can put in the
+name of a file you want to search. Type the name
+
+<p align="center">
+<dfname> cmr10.mf </dfname>
+</p>
+
+in that box and ask it to search it in the <font
+color="456789">C:</font> directory. Then click the button for
+<blink>Find now</blink>.
+
+This will tell you where the file <dfname> cmr10.mf</dfname> is
+located. This is one of the files in the <font color="magenta">
+TeX</font>/<font color="magenta"> LaTeX</font> distribution system. If
+the computer cannot find this file, there is something wrong with the
+installation of <font color="magenta"> TeX</font>/<font
+color="magenta"> LaTeX</font> in your system. In this case, forget
+about installing bangtex and rather have <font color="magenta">
+TeX</font>/<font color="magenta"> LaTeX</font> installed in your
+computer properly. In the rest, I assume that this is not the case,
+and the computer has given you some reply to the commands issued
+above. The answer might vary from one computer to another, depending
+on the version and distribution of <font color="magenta">
+TeX</font>/<font color="magenta"> LaTeX</font> installed. However, all
+answers should have a common generic structure, viz., you should see
+that the file <dfname>cmr10.mf</dfname> is sitting in a directory whose
+name is of the form
+
+<p align="center">
+<dfname> AAA\texmf\fonts\source\public\cm </dfname>
+</p>
+
+where <dfname>AAA</dfname> is a symbolic representation. This is the
+part which varies from one computer to another. For example, on one
+computer that I have checked, <dfname>AAA</dfname> is <font
+color="456789">C:</font>. This means that the answer to the `find now'
+command on this computer gave me the folder name
+
+<p align="center">
+<dfname> C:\texmf\fonts\source\public\cm </dfname>
+</p>
+
+But in another computer, the answer could be different.  Whatever it
+may be, you need to remember the name of the <dfname>
+<dfname>AAA</dfname></dfname> directory for the rest of the
+installation. In everything that follows, replace <dfname> AAA</dfname>
+by the name of the directory that you have just determined for your
+computer.
+
+
+
+<h2>Installing the font files</h2>
+
+Now go back to your <dfname>Desktop</dfname> and double click on the
+file <dfname> bfonts.tar.gz</dfname> that had been sitting there. This
+is a zipped file, so the double click will cause <dfname>
+WinZip</dfname> to start working. Choose the <dfname> Extract</dfname>
+option. It will ask you which folder to extract the file into. In the
+box provided for the answer to this question, write
+
+<p align="center">
+<dfname> AAA\texmf\fonts\source </dfname>
+</p>
+
+Remember that <dfname> <dfname>AAA</dfname></dfname> is symbolic
+here. It should be replaced by the appropriate thing, as described
+above. If you now click on <dfname> Extract</dfname> again, the fonts
+files will be unpacked and placed in proper places.
+
+
+<h2>Installing the macro files for <font color="magenta"> LaTeX</font></h2>
+
+<font color="magenta"> LaTeX</font> needs extra macro files for formatting a document. For a
+document written in Bangla, we need to have the macros such that the
+headings for chapters, sections, etc appear in Bangla, and so do the
+captions for tables and figures. For this, extra files need to be
+installed. 
+
+For this, double click on the file <dfname> bsty.tar.gz</dfname> on
+your Desktop and follow exactly the same steps as for installing the
+font files, with the exception that you put in the folder name
+
+<p align="center">
+<dfname> AAA\texmf\tex\latex </dfname>
+</p>
+
+when you are asked for one. Here also, <dfname>AAA</dfname> is
+symbolic as before.
+
+
+
+<h2>If you are updating...</h2>
+
+If this is the first time you are installing bangtex on your computer,
+ignore this and go to the <a href="#wininit">next section</a>. If you
+already have an earlier version of bangtex installed, you must
+eliminate some files of that earlier version so that the new ones
+work.
+
+For this, do 
+
+<p align="center">
+<table border=1 bgcolor="cyan">
+<tr>
+<td>Start</td> 
+<td>Find </td>
+<td>Files or Folders</td></tr></table>
+</p>
+
+once again.  This time, ask the computer to search for the following
+file:
+
+<p align="center">
+<dfname> bang10.tfm </dfname>
+</p>
+
+Again, it will show you the folder where this file is in. For example,
+on my computer, it returns with the following folder name:
+
+<p align="center">
+<dfname> C:\localtexmf\fonts\tfm\bangla </dfname>
+</p>
+
+Start clicking on the <blink>My Computer</blink> widget on your
+desktop until you see this folder. Then drag the entire folder to the
+<blink>Recycle bin</blink> on your desktop.
+
+Now go one level up in the folder list by clicking the <blink>
+Up</blink> symbol on the window. You should see two folders now,
+one called <dfname> tfm</dfname> and the other called <dfname>
+pk</dfname>. Double click on the <dfname> pk</dfname> folder. You
+should see a folder called <dfname> ljfour</dfname>. Double click on
+it. There should be a folder called <dfname> Bangla</dfname> sitting
+here.  Drag this entire folder to the <blink>Recycle bin</blink>
+as well.
+
+
+<h2><a name="wininit"></a>Initializing the files</h2>
+
+You now have all the files in their proper places. You still have to
+pass on this information to the computer. In other words, when the
+computer will run <font color="magenta"> TeX</font> or <font color="magenta"> LaTeX</font>, it should know to look for the files
+in these locations. This can be done by clicking the following buttons
+in succession:
+
+<p align="center">
+<table border=1 bgcolor="cyan">
+<tr>
+<td>Start</td> 
+<td>Programs </td>
+<td>MikTeX </td>
+<td>MikTeX options</td></tr></table>
+</p>
+
+
+This will open a box. It has several pages. Hopefully it will open on
+a page titled <dfname> General</dfname>. If not, click on the name of
+that page and it will open. You will see different things on this
+page. One of them is called <dfname>File Name Database</dfname>. It
+should have a button called <blink>Refresh now</blink>. Click on this
+button. Wait until the computer does the refreshing. Once it is done,
+click on the cross button on the upper right to close the window for
+<blink>MikTeX options</blink>.
+
+
+
+<h2>Checking the installation</h2>
+
+The installation is now complete. Bangtex is now ready to be used. To
+know how to use it as well as to check that the installation was
+successful, we have provided some sample files in <dfname>
+bsample.tar.gz</dfname>, which includes the manual. It is best first to
+try to print the manual out, which will give you further instructions
+for creating documents on your own.
+
+For this, double click on the name of the file <dfname>
+bsample.tar.gz</dfname> sitting on your Desktop. Store the extracted
+files in any folder you want, but it is recommended that you do not
+store it in the <dfname> texmf</dfname> or <dfname> localtexmf</dfname>
+folders, or any other system folder like <font
+color="456789">C:\Windows</font>. For the sake of definiteness, let us
+say that you have saved the extracted files on a directory named <font
+color="456789">C:\btfiles</font>. If you have chosen some other name
+instead, change the ensuing instructions accordingly.
+
+It is now best to go to the <dfname> MS-DOS prompt</dfname> by clicking
+
+<p align="center">
+<table border=1 bgcolor="cyan">
+<tr>
+<td>Start</td> 
+<td>Programs </td>
+<td>MS-DOS prompt </td>
+</tr></table>
+</p>
+
+At the prompt, type
+
+<h4> cd &nbsp; &nbsp;C:\btfiles </h4>
+
+Once in the directory, issue the command
+
+<h4> latex manual </h4>
+
+and let the computer do what it wants to do. It will take a while,
+because it will have to create all the Bangla fonts. This will happen
+only the first time. If you run latex subsequently, it will be much
+faster because the fonts will then already be there on the disk.
+
+Once this is done, you can go back to the Windows Desktop and click
+
+
+<p align="center">
+<table border=1 bgcolor="cyan">
+<tr>
+<td>Start</td> 
+<td>Programs </td>
+<td> MikTeX </td>
+<td> Dvi viewer</td>
+</tr></table>
+</p>
+
+This will open a window to view the file. Click on the <dfname>
+`File'</dfname> option, and then the <dfname> `Open'</dfname>
+option. In the window provided, either type in the name of your file,
+e.g.,
+
+<p align="center">
+<dfname> C:\btfiles\manual </dfname>
+</p>
+
+and then click <dfname> `Open'</dfname>, or double click on the folder
+name on top successively until you double click your folder and your
+file. Now you can see the file as it would appear in print. If you
+want, you can print it out. If you have come to this point
+successfully, the installation is complete and perfect, and you can
+throw away the files <dfname> tar.gz</dfname> files that you had
+downloaded.
+
+<p align="right"><a href="#top">Top of page</a>
+
+
+<hr>
+
+<h1><a name="mac">Installation on MacOS</a></h1>
+<p align=right> (Courtesy: Suratna Das)
+<p>
+  
+It will be assumed that MacTex is installed on your computer.  This is
+the basic step for using
+<font color="magenta">TeX/LaTeX</font> in MacOS.  The distribution
+files for bangtex can be downloaded before you start the procedure
+outlined below, or can be downloaded during the installation, as
+indicated in these instructions.
+
+
+<h2> Global installation for all users on a given computer </h2>
+
+You will need superuser privileges for doing this.  Either log in as
+superuser, or use <comm>sudo</comm> in front of every command shown
+below.
+
+<ol>
+
+  <li> Check whether the folders <dfname>/Library/texmf/tex/latex</dfname>
+    and <dfname>/Library/texmf/fonts/source</dfname> exist on your
+    computer.  They should.  If not, create them with the
+    command <comm>mkdir</comm>. 
+
+
+<li> 
+Download <dfname>bfonts.tar.gz</dfname> and move it to
+the <dfname>/Library/texmf/fonts/source</dfname> folder by using the
+command
+
+<h4> mv &nbsp; bfonts.tar.gz &nbsp; /Library/texmf/fonts/source/ </h4>
+
+<li> Go to the
+  folder <dfname>/Library/texmf/fonts/source</dfname> and untar the
+  fonts file by issuing the commands
+
+  <h4> cd /Library/texmf/fonts/source <br>
+    tar xvfz bfonts.tar.gz </h4>
+
+  <li> Similarly download bsty.tar.gz, move it to the folder
+    <dfname>/Library/texmf/tex/latex</dfname>, go to that folder and
+    untar it:
+
+    <h4> cd /Library/texmf/tex/latex <br>
+      tar xvfz bsty.tar.gz </h4>
+
+    <li> At this stage, you can delete the
+    files <dfname>bsty.tar.gz</dfname>
+    and <dfname>bfonts.tar.gz</dfname> if you want.  They will not be
+    needed again.
+
+    </ol>
+
+That completes the installation.  To check whether the installation
+has been successful, download <dfname>bsample.tar.gz</dfname> in any
+folder.  Let us say the name of this folder is <dfname>/SAM</dfname>.
+Go to that folder and untar this file:
+
+<h4> cd  /SAM <br>
+  tar xvfz bsample.tar.gz </h4>
+
+You will see a few files coming out in the process.
+Run <font color="magenta">LaTeX</font> on any one of these sample
+files.  The most important one is the manual file, which you should
+run <font color="magenta">LaTeX</font> on, and read for preliminary
+instructions for using bangtex.
+
+<h2> Installation for a single user </h2>
+
+This kind of installation is not recommended.  But, if you do not have
+superuser access and are desperate to install bangtex, you can follow
+these steps.
+
+
+<ol>
+
+  <li> Create two folders <dfname>~/Library/texmf/tex/latex</dfname>
+  and <dfname>~/Library/texmf/fonts/source</dfname>.  Note that,
+  initially the <dfname> ~/Library</dfname> folder will not have
+    the <dfname>texmf</dfname> folder. So you will have to create the
+  folder sequentially.  For example, to create the first one, issue
+	the commands
+
+	<h4>  cd ~/Library <br>
+	  mkdir texmf <br>
+	  cd texmf <br>
+	  mkdir tex <br>
+	  cd tex <br>
+	  mkdir latex </h4>
+
+For the other one, the commands are similar, with obvious change of
+	some names.
+
+  <li>  Now follow the steps for superuser installation starting from
+  step 2, except that anywhere you see the directory
+  name <dfname>/Library</dfname>, replace it
+  by <dfname>~/Library</dfname>.
+    
+
+</ol>
+
+
+
+<hr>
+
+<h1><a name="advice">Words of advice for all systems</a></h1>
+
+Whether you are using the program in Linux or Unix or Windows, the
+following remarks may be of help.
+
+<ol>
+
+<li> Latex files with cross references need to be run at least twice
+before the cross references are properly displayed. This applies for
+the file <dfname> manual.tex</dfname> included in the distribution, and
+any file with cross references that you might prepare.  
+
+<li> The
+sample file called <dfname> samptex.tex</dfname> has to be run with
+plain <font color="magenta"> TeX</font> rather than <font
+color="magenta"> LaTeX</font>. All other sample files in the
+distribution, including the manual file, are <font color="magenta">
+LaTeX</font> files.  
+
+<li> You can look into the sample files to learn
+some tricks. For example, if you are preparing a plain <font
+color="magenta"> TeX</font> document and don't know how to make the
+page numbers appear in Bangla, look into the file <dfname>
+samptex.tex</dfname> to find out the solution.
+
+</ol>
+
+<p align="right"><a href="#top">Top of page</a>
+
+</body>
+</html>
+
