@@ -1,0 +1,94 @@
+
+\usepackage{color, graphicx}
+\usepackage{latexsym, lastpage}
+\usepackage{newcent}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[C]{\parbox{\textwidth}{\null\hrulefill\newline
+Created with talkpal \hfill Slide~\arabic{page} of \pageref{LastPage}}}
+
+
+\usepackage[papersize={240mm,135mm}]{geometry}
+
+\topmargin=-25mm
+\oddsidemargin=-20mm
+\evensidemargin=\oddsidemargin
+\textwidth=230mm
+\textheight=100mm
+%\fancyfootwidth{\textwidth}
+
+\newcounter{nsegment}
+\newcounter{currlap}
+\newcounter{totlaps}
+
+\setcounter{currlap}0
+
+\makeatletter
+\def\slidebasec@l@r{red}
+\def\carryc@l@r{black}
+
+\def\flags{{Segment~\arabic{nsegment},
+    Donelaps~\arabic{currlap}, Total
+    laps~\arabic{totlaps}}\newline}
+
+\long\def\beginslide#1\endslide{\newpage
+  \setcounter{nsegment}1
+  \setcounter{currlap}1
+  \setcounter{totlaps}1
+  \ifnum\thetotlaps>0
+  \loop
+  \setcounter{nsegment}1
+  \setcounter{totlaps}{\thensegment}
+  \addtocounter{totlaps}1
+%  \flags
+  \vbox{\defaultsize #1}\vfill
+  \stepcounter{currlap}
+  \newpage
+  \ifnum\thecurrlap<\thetotlaps
+		\addtocounter{page}{-1}
+  \repeat
+  \fi
+}
+
+\def\newsegment{\stepcounter{totlaps}
+  \ifnum\thensegment=\thecurrlap%
+  \global\color{\slidebasec@l@r}\fi\stepcounter{nsegment}
+%  \flags
+}
+
+\def\colortext#1#2{\ifnum\thensegment>\thecurrlap%
+  \global\color{\slidebasec@l@r}\else%
+  \textcolor{#1}{#2}\fi}
+
+%% INCLUDING PICTURES
+
+\def\putfigure#1#2#3{\ifnum\thensegment>\thecurrlap
+%  \includegraphics[height=#1,
+  %  #2]{PBPpic.jpg}
+  \vspace*{#1}
+  \else
+  \includegraphics[height=#1, #2]{#3}
+  \fi
+}
+
+
+
+%% SETTING DEFAULTS
+
+\def\slidebasec@l@r{black}
+\pagecolor{\slidebasec@l@r}
+\def\slideborderc@l@r{red} %\def\slidebasec@l@r{cyan}
+\def\carryc@l@r{black} \setlength{\fboxrule}{2mm}
+\def\defaultsize{\LARGE} 
+\def\runningheadcolor{black}
+\def\runningheadtext{Created with pptalk}
+\color{yellow}
+
+
+\makeatother
+
+
+
