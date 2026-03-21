@@ -1,0 +1,167 @@
+<html>
+<title>Pptalk</title>
+
+<body bgcolor="#ffa8c7" link="#0000FF" vlink="#800080">
+
+<h1> <font color="#ffff00">P</font><font color=cyan>p</font><font color=blue>talk</font>:  A LaTeX-based package for talk
+presentation</h1>
+<hr>
+
+Created by Palash B. Pal </font>
+<br>
+First released: February 2004.<br>
+New version: March 2005. 
+<hr>
+<font size=4>
+The package 
+<font color=purple>Pptalk </font> is a LaTeX-based style
+file which allows you to achieve the following things:
+
+<ol>
+<li> Using a multi-media projector, you can project your talk on the
+screen in different slides.  The slides can be divided into different
+segments which can appear one at a time, at the push of one key on the
+keyboard or one click of the mouse.
+
+
+<li> If you change your mind and decide to give the talk with
+transparencies, you can use the same file, with one announcement in
+the preamble, to generate a hard copy which will not divide a page
+into segments.
+
+<li> If you further want to print out the talk where you would not
+care about the division of the text into slides, you can again do it
+with a different announcement in the preamble.
+
+</ol>
+
+
+<h2> The files in the distribution </h2>
+
+
+These are the names of the files in the package, along with
+an upper limit  of their sizes given in parentheses:<br>
+<ul><font color=green><b>
+<li> <a href="pptalk.sty">pptalk.sty</a> (5 kb)
+<li> <a href="samptalk.pdf">samptalk.pdf</a> (169 kb)
+<li> <a href="samptalk.tex">samptalk.tex</a> (30 kb)
+<li> <a href="slidekey.pl">slidekey.pl</a> (1 kb)
+</b></font>
+</ul>
+Only the first file is indispensable.  The others are for helping the
+user at the initial stage.  Read more about these files to decide
+which ones you need to download.
+
+
+
+<h3> The pdf file </h3> 
+
+I suggest that you first download the file <font
+color=green><b>samptalk.pdf</b></font>, open it with any pdf viewer
+and go through it.  Acroread (also known as Acrobat Reader) is
+recommended, version number 5.0 or higher.<p>
+
+When you first open it, you might find that all the lines are running
+vertically upwards.  If that happens, use the <font
+color=yellow>View</font> menu to rotate it clockwise by
+90&#176;. If the file appears in normal orientation, ignore this step.
+
+<p> Go to the <font color=yellow>full-screen view</font> now. This
+can be accessed in the pull-down menu under the option <font
+color=yellow>View</font>, or alternatively, by pressing <font
+color=yellow>Ctrl-L</font>.  Use the <font color=yellow>left
+mouse</font> button, or the <font color=yellow>PageDown</font>
+button on the keyboard to go forward in the file.
+
+
+
+<p> You may use some special features of this mode.  For example, in
+the PREFERENCES menu, you can set up such that new slides appear in
+the DISSOLVE mode, or in some other mode that you like.  These, of
+course, have to be set before you enter the <font
+color=yellow>full-screen view</font> mode.
+
+
+<p> You cannot fail to notice that this file is a manual for <font
+color=purple>Pptalk</font>.  It is also an example created with <font
+color=purple>Pptalk</font>. If you are satisfied with the example and
+want to use <font color=purple>Pptalk</font> for your presentations,
+continue.
+
+
+<h3> The style file </h3>
+
+As already said, the file <font color=purple>pptalk.sty</font> is the
+main file which does all the tricks for you.  You need to install it.
+
+<ul>
+
+<li>
+
+Log in as the superuser (root), and move the file <font
+color=purple>pptalk.sty</font> to any place on your computer under the
+<tt><b>\texmf</b></tt> directory, preferably to some subdirectory
+where other style files are kept, or in a new subdirectory created for
+your personal use.
+
+<p> Run the command 
+<p align="center">
+<font color="#456789">
+texhash 
+</font>
+</p>
+
+so that the LaTeX compiler knows about <font
+color=purple>Pptalk</font>.  Believe it or not, that's all you need to
+do for the installation.
+
+
+<li> If you don't have superuser access, you can put the file <font
+color=purple>pptalk.sty</font> within any directory, but then it will
+work only within that directory.
+
+</ul>
+
+<h3> The inessential files </h3>
+
+The file <font color=green><b>samptalk.tex</b></font> is the source
+file from which <font color=green><b>samptalk.pdf</b></font> has been
+produced.  You may want to look into the source file to get some idea
+of how to write a <font color=purple>Pptalk </font> file.
+
+<p>
+
+The file <font color=green><b>slidekey.pl</b></font> is useful only if
+you use an emacs editor.  It is a little script that you can insert
+into your emacs configuration file (called <tt><b>.emacs</b></tt>).
+Once this is done, a push of the keyboard function key F11 will write
+the commands <tt><b>\beginslide</b></tt> and <tt><b>\endslide</b></tt>
+into a file, provided the emacs version is 19 or higher.  You can
+change it trivially to any other key of your choice.
+
+
+<h2> How to use <font color=purple>Pptalk</font></h2>
+
+All instructions regarding the use of <font color=purple>Pptalk</font>
+have been given in the sample file <font
+color=green><b>samptalk.pdf</b></font>  mentioned earlier.  In
+case of any problem, send a message to the creator of <font
+color=purple>Pptalk</font>.
+
+
+<h2> License </h2>
+
+<font color=purple>Pptalk</font> is protected by the GNU General
+Public License (GPL).  To know more about GPL, go to the <a
+href="http://www.gnu.org/copyleft/gpl.html">GPL home page</a>.
+
+
+<hr>
+
+<p align="center">
+This page is created and maintained by <a
+href="mailto:palashbaran.pal@saha.ac.in">Palash B. Pal</a> 
+<br> Click on the
+name to send a message if you find some bug or have any other comment.
+
+</html>

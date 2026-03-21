@@ -1,0 +1,989 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym,pptalk}
+
+\font\colossal=cmss10 scaled 5000
+\font\gigantic=cmss10 scaled 2500
+
+
+%\transparency
+%\onpaper
+
+\def\pptalk{{
+\raise.2ex\hbox{\textcolor{magenta}P}\kern-.25em
+\raise-.1ex\hbox{\textcolor{red}p}\textcolor{blue}{talk}}} 
+\def\ecomm#1{{\textcolor{blue}{$\backslash${\bf #1}}}}
+\def\noncomm#1{{\textcolor{blue}{\bf #1}}}
+\def\comm#1{{\textcolor{red}{$\backslash${\bf #1}}}}
+\def\button#1{{\fboxrule=.5mm\framebox{#1}}}
+\def\file#1{\textcolor{darkpurple}{\bf #1}}
+\def\txtem#1{\texttt{\sl `#1'}}
+
+\definecolor{beige}{rgb}{.9,.9,.7}
+\definecolor{leaf}{rgb}{.75,1,.75}
+\definecolor{darkpurple}{named}{RedViolet}
+
+
+\title{\textcolor{blue}{\colossal The \pptalk\  package~: sample
+and manual}} 
+\author{\gigantic Palash B. Pal\\ 
+\textcolor{red}{\gigantic pbpal@theory.saha.ernet.in}\\
+Saha Institute of Nuclear Physics\\
+1/AF Bidhan-Nagar, Calcutta 700064, INDIA\\[10mm]
+}
+
+\date{First release: February 2004\\ 
+This version: March 2005}
+
+\begin{document}
+
+
+
+\maketitle
+
+\beginslide
+
+\section{Set it up first!}
+%%
+You are now viewing a PDF file.  I recommend that you see it with
+\noncomm{Acroread} (called \noncomm{Acrobat Reader} in Windows), 5.0
+or later.  \textcolor{red}{Please read the instructions on this slide
+carefully before going to the next slide.}
+
+%%
+\begin{enumerate}
+
+\item If you find that the file appears $90^\circ$ rotated as you open
+it, use the \noncomm{View} menu to rotate it clockwise by
+$90^\circ$. If the file appears in normal orientation, ignore this
+step.
+
+\item Use the \noncomm{full screen view} in the Acrobat.  This can be
+accessed in the pull-down menu under the option \noncomm{View}, or
+alternatively, by pressing \noncomm{Ctrl-L}.
+
+\item Use the \button{left mouse} button, or the \button{PageDown}
+button on the keyboard to go forward in the file.  In what follows,
+this hit or click will be denoted by \button{$\bullet$}. 
+
+\item The \button{right mouse} / \button{PageUp} buttons can be used
+for going backward if you have to.
+
+\item Even if you are not using \noncomm{full screen view} for some
+reason, \underline{never use the scroll bar} to navigate within the
+file.  Rather, click on the next-page arrow (which looks like
+\button{$\rhd$}, a triangle pointing right) with your mouse.
+
+\end{enumerate}
+
+
+%%
+Okay, now use \button{$\bullet$} to go to the next slide.
+
+\endslide
+
+\beginslide
+\section{What \pptalk\ does}
+%%
+The package \pptalk\ is a \LaTeX-based style file which allows you to
+achieve the following things:
+%
+\begin{enumerate}
+\item Using a multi-media projector, you can project your talk on the
+screen in different slides.  The slides can be divided into different
+segments which can appear one at a time, at the push of one key on the
+keyboard or one click of the mouse.
+
+
+\item If you change your mind and decide to give the talk with
+transparencies, you can use the same file, with one announcement in
+the preamble, to generate a hard copy which will not divide a page
+into segments.
+
+\item If you further want to print out the talk where you would not
+care about the division of the text into slides, you can again do it
+with a different announcement in the preamble.
+
+\end{enumerate}
+
+\endslide
+
+%%%%%%%%%%%%
+\beginslide
+
+\section{\pptalk\ vis-\`a-vis Power Point}
+%
+As you noticed, the objective is similar to the program {\em Power
+Point\/} used in Windows OS.  Although I have never used {\em Power
+Point\/}, I must admit that \pptalk\ has been inspired by {\em Power
+Point\/} talk presentations that I have seen.  Indeed, some people
+argue that the letters ``pp'' in the name \pptalk\ is merely an
+acronym of this famous software, though some others say that they are
+the initials of the person who wrote \pptalk.
+
+Like {\em Power Point\/}, segments appear with clicks in \pptalk.
+However, it does not have animation like {\em Power Point\/}.  On the
+other hand, you can use the rich formatting features of \LaTeX,
+including equations and tables etc.  If you are used to using \LaTeX,
+you can use all its features in \pptalk.
+
+\endslide
+
+
+%%%%%%%%%%%%
+\beginslide
+
+\section{\pptalk\ vis-\`a-vis other \LaTeX-based presentation packages}
+%
+I have seen two more \LaTeX-based talk presentation packages:
+\file{prosper} and \file{pdfscreen}.  I have not used either, and have
+come to know about the latter one only after writing most of \pptalk.
+Both these packages are much larger than \pptalk, and they can do many
+things that \pptalk\ cannot.  However, there is a flip side to it.
+Both these packages have many commands as opposed to only a few for
+\pptalk.  \pptalk\ consists of only a style file, a few kilobytes
+long, which can be easily transported and installed on another system
+if you are away on a trip.  The other packages have to use separate
+class files, which means that the input file looks very different from
+what you would write for an ordinary \noncomm{article} class file.  In
+short, \pptalk, though rudimentary, has the most important features
+needed for a talk presentation, and is easier to deal with.  This, by
+the way, is not the only advantage of \pptalk.  The user is left to
+judge for others.
+
+\endslide
+
+%%%%%%%%%%%%%
+
+\slidebox{red}{beige}
+
+\beginslide
+
+\section{How to use \pptalk}
+%
+Create the \LaTeX\ file following the instructions given later in this
+document.  Then use the standard commands to produce the dvi file, the
+ps file and the pdf file.  For example, if the input file is called
+\file{xyz.tex}, issue the following commands in successsion:
+%
+\begin{quote}
+\noncomm{latex\quad xyz\\
+dvips\quad xyz\quad  -o\\
+ps2pdf\quad  xyz.ps}
+\end{quote}
+%
+The final stage produces a file called \file{xyz.pdf}.  You can also
+create this file by using the alternative commands
+%
+\begin{quote}
+\noncomm{latex\quad xyz\\
+dvipdf\quad xyz.dvi\quad  $>$ \quad xyz.pdf}
+\end{quote}
+%
+Open the pdf file on the screen using any standard pdf reader like
+acroread (or Acrobat Reader).  As emphasized earlier, Acrobat 5.0 or
+later versions should be used.
+
+
+If you find that the file appears $90^\circ$ rotated as you open
+it, use the VIEW menu to rotate it clockwise by $90^\circ$. If the
+file appears in normal orientation, ignore this suggestion.
+
+Now use the full screen view in the Acrobat, as discussed earlier.
+
+\endslide
+
+%%%%%%%%%%%%%
+
+\beginslide
+
+\section{How to organize the file}
+%
+You don't need to use a new class file in order to write your talk
+with \pptalk.   You can use the \noncomm{article} class file.  Use the
+package \pptalk.  In other words, start your file as follows:
+%
+\begin{quote}
+\ecomm{documentclass[12pt]\{article\}} \\ 
+\ecomm{usepackage\{pptalk\}}
+\end{quote}
+%
+and of course, with the commands for beginning and ending the
+document.  In the middle, you can write \LaTeX\ in the usual way, with
+a few special commands for \pptalk\ which are discussed in the rest of
+this document.  These special commands will appear in
+\textcolor{red}{red} in this document.  Any other command, either a
+shell command or commands belonging to standard \LaTeX\ or to any
+existing style file, will appear in \textcolor{blue}{blue}.
+
+\textcolor{blue}{Be careful to include the \file{12pt} option in the
+\ecomm{documentclass} declaration, as shown above.  The sizes of fonts
+have been set with this option in such a way that appears nice on the
+projected screen.}
+
+\underline{Do not use} any of the page style commands like
+\ecomm{textheight} or \ecomm{textwidth}.  These have already been set
+by \pptalk\ to some optimum values which will suit a screen
+presentation.
+
+\endslide
+
+%%%%%%%%%%%%%%
+
+\beginslide
+
+\section{Dividing things into slides}
+%
+You need to decide how much (or how little) of text you want to put in
+a particular slide.  When you want to begin a particular slide, type
+%
+\begin{quote}
+\comm{beginslide}
+\end{quote}
+%
+Then continue with whatever you want to put there, typing things just
+as in a normal \LaTeX\ file.  
+
+Divide things into paragraphs as you want, put equations as you want:
+%
+\begin{eqnarray*}
+\vec x = \pmatrix{x_1 \cr x_2} \,.
+%\label{}
+\end{eqnarray*}
+%
+When you finish typing the contents of the slide, type
+%
+\begin{quote}
+\comm{endslide}
+\end{quote}
+%
+After that,  use the \comm{beginslide} command to start a new slide.
+
+If you have ended up putting too little material on the slide, you
+will obtain a warning message while running \LaTeX.  You may choose to
+ignore this message, or want to put in some more material on the slide.
+
+\endslide
+
+
+%%%%%%%%%%%%%%
+\beginslide
+%
+On the other hand, if the material is a bit too much to fit on a
+slide, \pptalk\ will mildly complain.  While normally the page header
+(containing the slide number) appears above the slide box, \pptalk\
+will now put the header on an otherwise empty page, followed by a page
+containing the slide box.  This means that you need to roughly shorten
+the material by one line in order to make it fit.
+
+When the material becomes so long that even that does not work,
+\pptalk\ will give you a page with an error message.  Now some more
+drastic changes are necessary.  Here are your options:
+%%
+\begin{enumerate}
+\item You can transfer some of the contents of the slide to another
+slide.  This is the best option.
+
+\item You can reduce the font size.  The default font size is
+\ecomm{LARGE}.  You can change it to, e.g., \ecomm{Large} by issuing the
+command
+%
+\begin{quote}
+\ecomm{def{\comm{defaultsize\{$\backslash$Large\}}}}
+\end{quote}
+%
+anywhere within the file.  This is not recommended unless you are
+giving the talk to a small audience, in a small room.
+
+\item In principle, you can increase the size of the slides by putting
+suitable values of \ecomm{textheight} and/or \ecomm{textwidth} in the
+preamble, like you can do in any \LaTeX\ file.  This is highly
+discouraged since the resulting slide may not fit on a computer
+screen.
+
+\end{enumerate}
+
+
+
+\endslide
+
+
+
+%%%%%%%%%%%%%%
+\beginslide
+\section{Dividing things into segments}
+%
+Now come the novel things.  Suppose you want to present the contents
+of a page in a number of segments, one segment appearing at a time.
+What do you do?
+
+You decide how the segmentation will have to be made in a slide.  
+Start writing the slide with the first segment, after the
+\comm{beginslide} command.  When one segment is
+done and you want to start the next segment, just type the command
+%
+\begin{quote}
+\comm{newsegment}
+\end{quote}
+%
+Then write the text for the next segment.  Continue this process until
+you reach the end of the slide with \comm{endslide}.
+
+Let us now see an example.  Notice that there is an empty portion at
+the bottom of this slide.  This is because there are more segments
+down there.  Use \button{$\bullet$} now.
+
+\newsegment
+
+\textcolor{magenta}{Now you see the next segment.}  You can continue this
+way, introducing more segments.  In principle, the number of segments
+on a page can be unlimited.  However, the length of the page and the
+size of the font introduces some obvious restrictions.
+
+From now on, hit \button{$\bullet$} whenever you want to see some more
+material on the screen: whether material continued on the same slide
+or on a different slide.
+
+\endslide
+
+%%%%%%%%%%%%%%%%
+
+\beginslide
+
+You can put the command \comm{newsegment} almost anywhere in the file.
+You can put it between two paragraphs, as you have done once earlier
+and will do again at the end of this paragraph.  You will realize that
+the command can be put at the end of a sentence if you hit
+\button{$\bullet$} now. \newsegment You can put the command before or
+after an equation, before or after a table, or even in the middle of a
+word like (let's see if I can spell it right) \textcolor{red}{ \Huge
+``super\-\newsegment calli\newsegment fragi\newsegment
+listic\newsegment expi\newsegment alli\newsegment docious''.}
+
+%\newsegment
+\endslide
+
+%%%%%%%%%%%%%%%
+
+\beginslide
+
+You can also put the command within groups.  By \noncomm{group}, I
+mean anything which is between a matching beginning and ending
+command.  For example, it can be a table, an environment like quote or
+enumerate, an equation, a command in the math mode which uses matching
+brackets.
+
+However, in this case you will have to do a bit of extra work.  The
+command \comm{newsegment} works only within a group.  So, when the
+group ends, if you want to continue with the same segment, put the
+command 
+%
+\begin{quote}
+\comm{samesegment}
+\end{quote}
+%
+and keep writing.  For example, in writing
+%
+\begin{eqnarray*}
+x =  \newsegment 
+\textcolor{blue}{\pmatrix{x_1 \cr x_2} \,,}
+%\label{}
+\end{eqnarray*}
+%
+\samesegment 
+I had to put the \comm{samesegment} command right after
+the equation.  And when I wrote  
+%
+\begin{eqnarray*}
+x = \left[ \frac1a + \newsegment \frac1b \right] \samesegment (y+2) 
+%\label{}
+\end{eqnarray*}
+%
+\samesegment using \ecomm{left[}$\cdots$\ecomm{right]}, 
+I had to put the \comm{samesegment} command after
+the closing square bracket.
+
+\endslide
+
+%%%%%%%%%%%%%%
+
+\slidebox{red}{leaf}
+
+\beginslide
+\section{How to use colors}
+%
+You have already seen colors being used in this sample file.  This has
+been done by using the package \file{color}.  \pptalk\ itself has this
+package as an input, so you should not introduce it explicitly when
+you are using \pptalk.
+
+\newsegment
+
+The \file{color} package defines two commands for implementing colored
+text.  One of them is \ecomm{textcolor}, used for a local change of
+color.  The syntax is
+%
+\begin{quote}
+\ecomm{textcolor\{{\em colorname}\}\{Text material\}}
+\end{quote}
+%
+which makes the \txtem{`Text material'} to appear in the color given
+as \txtem{`colorname'}.  This command has been suitably redefined in
+\pptalk, and will work exactly the same way within \pptalk.  On the
+other hand, you can use the command
+%
+\begin{quote}
+\comm{Color\{\em colorname\}}
+\end{quote}
+%
+which will change the color of the text for the rest of the document.
+This is a \pptalk\ special, and is a variation of the command
+\ecomm{color} defined in the \file{color} package.
+
+
+\endslide
+
+%%%%%%%%%%%%%
+
+\beginslide
+
+\section{Color names}
+%%
+The basic color names appear in the file \file{color.sty}, which is
+part of the color package.  They are: red, blue, green, cyan, magenta,
+yellow, and the non-colors white and black.
+
+\newsegment
+
+Additional colors, defined by the file \file{color.pro} in the color
+package, can also be used.  Take, e.g., the name ``Plum'' from this
+file.  If you issue the command
+%
+\begin{quote}
+\ecomm{definecolor\{{\em plum}\}\{named\}\{Plum\}} 
+\end{quote}
+%
+you will be able to use \txtem{plum} for a \txtem{colorname}.
+
+\newsegment
+
+You can also create new colors.  For example, a new color called {\bf
+RONG} can be defined by any of the following commands, where each
+$p_i$ is a number between 0 and 1:
+%
+\begin{quote}%\label{p:defcol}
+\ecomm{definecolor\{{\em RONG}\}\{rgb\}\{$p_1,p_2,p_3$\}} \\
+\ecomm{definecolor\{{\em RONG}\}\{cmyk\}\{$p_1,p_2,p_3,p_4$\}} \\
+\ecomm{definecolor\{{\em RONG}\}\{gray\}\{$p_1$\}}
+\end{quote}
+%
+The last command produces only shades of gray.  Test with various
+values of $p_i$ to create your own pallette.
+
+
+\endslide
+
+%%%%%%%%%%%%%%% 
+\beginslide 
+
+\section{Background color} 
+%%
+There can be two different meanings of the words ``background color''
+in the context of \pptalk.  Any slide appears as a box on a page.  If
+you want to change the color of the page outside the box, use the
+standard command defined in the color package:
+\begin{quote}
+\ecomm{pagecolor\{{\em colorname}\}}
+\end{quote}
+%
+where \txtem{colorname} is the name of a color already defined,
+either in the file \file{color.sty} or by yourself.  The default color
+is white, which is what has been used in this document.  You can
+change it anywhere within the document.  The command takes effect from
+the slide on which it appears.
+
+You might also want to change the color of the box containing text,
+and the color of the border.  For this, you need to use the \pptalk\
+command 
+%
+\begin{quote}
+\comm{slidebox\{{\em color1}\}\{{\em color2}\}}
+\end{quote}
+%
+before any \comm{beginslide} command.  
+Once you use this, \txtem{color1} will be the color of the
+border, and \txtem{color2} will 
+be the base color within the borders, starting from the slide which
+starts after this declaration.  If you don't like the border, 
+\txtem{color1} must be the same as the background color of the
+page, or the base color set by \txtem{color2}.
+
+
+\endslide
+
+%%%%%%%%%%
+
+\slidebox[1mm]{blue}{beige}
+\beginslide
+
+If you also want to change the width of the border, you can use an
+optional argument.  For example, before this page, the border has been
+set to blue, the base color to beige, and the borderwidth to 1mm by
+issuing the command
+%
+\begin{quote}
+\comm{slidebox[1mm]\{blue\}\{beige\}}
+\end{quote}
+%
+where the color beige has been defined by
+%
+\begin{quote}
+\ecomm{definecolor\{beige\}\{rgb\}\{.9,.9,.7\}}
+\end{quote}
+%
+earlier in the document.  Note that the base color was
+beige earlier as well.  But it does not matter.  You have to supply
+the names of both colors in the \comm{slidebox} command even if you
+want to change only one of them, or even if you want to just change
+the borderwidth without changing the colors at all.
+
+\newsegment
+
+This command can also be utilized if you do not want the border around
+the text.  Just set the width to zero.   Remember that the width must
+have a unit of length.   For example, you can write
+%
+\begin{quote}
+\comm{slidebox[0mm]\{blue\}\{beige\}}
+\end{quote}
+%
+Instead of \txtem{mm}, you can use any other unit recognized by \LaTeX.
+
+
+
+\endslide
+
+
+%%%%%%%%%%
+
+\beginslide
+
+%%
+I have a few recommendations on the use of colors.
+%%
+\begin{enumerate}
+%
+\item Do not use the global color change command \ecomm{color} defined
+in the package \file{color.sty}.  Use \ecomm{textcolor} or
+\comm{Color} instead.
+
+\item Use your judgement for color contrasts.  Needless to say, the
+contents of a slide will not be very legible if you use orange letters
+on a yellow background.
+
+\item Use light and dull shades for background.  Typeset most of the
+things in black.  No other color appears as beautifully on the screen.
+Use other colors only for emphasis.
+
+\item It is best not to define a new color unless you absolutely need
+to do so.  Use, as much as possible, the names defined in
+\file{color.pro} in order to retain some kind of universality in the
+color names.  It contains a lot of names, as shown next.  Try them
+out.
+
+\end{enumerate}
+%%
+
+\endslide
+%%%%%%%%%%%%%%%
+\beginslide
+
+\begin{center}
+\bf
+\begin{tabular}{llll}
+\hline
+\multicolumn{4}{c}{Colors defined in \file{color.pro}} \\
+\hline
+GreenYellow & Yellow & Goldenrod & Dandelion \\ 
+Apricot & Peach & Melon & YellowOrange \\ 
+Orange & BurntOrange & Bittersweet & RedOrange \\ 
+Mahogany & Maroon & BrickRed & Red \\ 
+OrangeRed & RubineRed & WildStrawberry & Salmon \\ 
+CarnationPink & Magenta & VioletRed & Rhodamine \\ 
+Mulberry & RedViolet & Fuchsia & Lavender \\ 
+Thistle & Orchid & DarkOrchid & Purple \\ 
+Plum & Violet & RoyalPurple & BlueViolet \\ 
+Periwinkle & CadetBlue & CornflowerBlue & MidnightBlue \\ 
+NavyBlue & RoyalBlue & Blue & Cerulean \\ 
+Cyan & ProcessBlue & SkyBlue & Turquoise \\ 
+TealBlue & Aquamarine & BlueGreen & Emerald \\ 
+JungleGreen & SeaGreen & Green & ForestGreen \\ 
+PineGreen & LimeGreen & YellowGreen & SpringGreen \\ 
+OliveGreen & RawSienna & Sepia & Brown \\ 
+Tan & Gray & Black & White \\
+\hline
+\end{tabular} 
+\end{center}
+\endslide  
+
+%%%%%%%%%%
+
+\beginslide
+
+\section{The running head on a slide}
+
+Each slide contains a header.  For example, the header of the present
+slide contains a line which says \txtem{Created with pptalk}, followed
+by the slide number.  This is the default header, and will appear on
+all slides unless you change it. 
+
+To change the text appearing in the header to, say, \txtem{My favorite
+header}, you need to issue the
+command 
+%
+\begin{quote}
+\ecomm{def\comm{runningheadtext\{\em My favorite
+header\}}}
+\end{quote}
+%
+In addition, you can also change the color of the running header to
+\txtem{color1} by issuing the command
+%
+\begin{quote}
+\ecomm{def\comm{runningheadcolor\{\em color1\}}}
+\end{quote}
+%
+You can use these commands at the beginning of the file, or between
+any two slides.
+
+The slide number will appear automatically.  You need not do anything
+for it.  Its color will be the same as the color of the text in the
+header. 
+
+\endslide
+
+%%%%%%%%%%%%%%%
+\slidebox[1mm]{blue}{leaf}
+
+\beginslide
+\section{Some technical points}
+%%
+\begin{itemize}
+
+\item On a segmented slide, do not use objects which are automatically
+numbered by \LaTeX.  The segmentation will interfere with the
+numbering.  If you have to start a section, you can do it with the
+usual \ecomm{section} command, which I have redefined to appear
+without a number.  If you want to have a displayed equation, use the
+\noncomm{eqnarray*} or the \noncomm{equation*} environments (with the
+asterisk marks), or begin and end equations with the double dollar
+(\$\$) signs, which will prevent the numbering of equations.
+
+\item The contents of a slide are put into a vbox by \pptalk.
+Environments like \noncomm{enumerate}, \noncomm{quote}, and
+\noncomm{itemize} cannot work across different vboxes, and therefore
+cannot be continued on different slides.  For long lists, it is
+advisable not to use \noncomm{enumerate} at all.  Instead, use
+\noncomm{itemize}.  That way, you can put a number of items on one
+slide, end the \noncomm{itemize} environment on that slide, and
+continue with a new \noncomm{itemize} on the next slide.  Looking at
+the result, no one will know that the same \noncomm{itemize} is not
+continuing.
+
+\end{itemize}
+
+\endslide
+
+%%%%%%%%%%%%%%
+
+\beginslide
+%%
+\section{Displaying tables}
+\begin{itemize}
+%%
+\item Do not use the \noncomm{table} environment that \LaTeX\
+provides.  Apart from putting a number of the table, it also puts the
+table as a floating object, and \LaTeX\ decides where to put it.  Just
+for creating the table, the \noncomm{tabular} environment is good enough.
+If the entries contain too many math symbols, you can also use the
+\noncomm{array} environment, putting the table within an equation.
+
+\item Do not use the \comm{newsegment} command in the middle of a 
+table.  I haven't been able to make it work.  This is a bug, which
+will be fixed shortly.  Meanwhile, if you really want to highlight
+something in a table, use colors to do that.
+
+\end{itemize}
+
+\endslide
+
+%%%%%%%%%%%%%%%
+
+\beginslide
+%%
+\section{Displaying figures}
+\begin{itemize}
+\item There are a number of packages for inserting postscript or EPSF
+files into a \LaTeX\ file.  In \pptalk, I use \file{epsf.sty}, which
+must not be introduced by the user because it is already included in
+\pptalk.  
+
+\item  For reasons described in the context of the \noncomm{table}
+environment,  the \noncomm{figure} environment should not be used.  
+Just insert your figure by the usual command \ecomm{epsfbox}, with one
+specification mentioned below.
+
+\item The normal syntax for \ecomm{epsfbox} is as follows:
+%%
+\begin{quote}
+\noncomm{\ecomm{epsfxsize={\em len1}} \ecomm{epsfysize={\em len2}}
+\ecomm{epsfbox\{{\em figfile}\}}}
+\end{quote}
+%%
+where \noncomm{\em len1, len2} are lengths in any units recognized by
+\LaTeX, and \noncomm{\em figfile} is a ps or eps file for a figure.
+The size declarations are normally optional.  However, for \pptalk,
+you must have an \ecomm{epsfysize} declaration.  In fact, \pptalk\
+decides on the size of the slide from this declaration.  The
+\ecomm{epsfxsize} declaration still remains optional.
+
+\end{itemize}
+
+\endslide
+
+%%%%%%%%%%%%%%%
+
+\beginslide
+%%
+\begin{itemize}
+\item If you prefer some other figure package, you can still use it,
+but then you will have to announce it by the \ecomm{usepackage}
+command explicitly.  And I guess that the figures will then be
+incompatible with the segmentation commands of \pptalk.  This means
+that you will have to put the figures in a page which is not divided
+into segments.
+
+\item But if you use the \file{epsf} package, you can use segmentation
+commands on pages containing figures.  An example is given on this
+page.
+
+
+\item On a segmented slide, avoid using very large figure files which
+will take a long time to load.
+
+\end{itemize}
+
+\newsegment
+
+\centerline{\epsfysize=8cm\epsfbox{pic.ps}}
+
+\endslide
+
+%%%%%%%%%%%%%%%
+
+\beginslide
+\section{On defaults}
+%%
+The default font family for \LaTeX\ is \noncomm{cmr}.  These fonts
+do not appear well in pdf conversions.  So I have reset the default to
+\noncomm{times}.  The \noncomm{palatino} and the \noncomm{helvetica}
+families also work quite well.  If you want to use \noncomm{palatino},
+for example, put the command
+%
+\begin{quote}
+\ecomm{usepackage\{palatino\}}
+\end{quote}
+%
+in the preamble of the file after the \pptalk\ package has been
+included.  For \noncomm{helvetica}, the corresponding package is
+called \noncomm{helvetic}.
+
+Other defaults are summarized in the following table:
+%%
+\begin{center}
+\begin{tabular}{lll}
+\hline
+Parameter & Default value & Can be changed by \\ 
+\hline
+Font size & \ecomm{LARGE} & \comm{defaultsize} \\
+Text color & black & \comm{Color} \\
+Background color & white & \ecomm{pagecolor} \\ 
+Slide base color & cyan & \comm{slidebox} \\
+Slide border color & red & \comm{slidebox} \\
+Slide border width & 2mm & \comm{slidebox} \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\endslide
+
+
+
+
+%%%%%%%%%%
+
+\beginslide
+
+\section{Presentation tips not related to \pptalk}
+
+\begin{list}{\textcolor{red}{$\spadesuit$}}{}
+
+\item Acrobat reader has some special modes for appearance of a slide
+  or a segment which appear in the full-screen view mode.  For
+  example, in the PREFERENCES menu, you can set up such that new
+  slides appear in the DISSOLVE mode.  Test to see what it does.
+
+\item The \LaTeX\ package called \file{pstricks} has many beautiful
+  features which can aid your talk presentation.  For example, you can
+  draw an arrow from one place in the slide to another.
+
+\item You can use a variety of symbols to announce an \comm{item} in a
+  list like this one.  For example, the list on this  slide has been
+  initiated by writing
+%
+\begin{quote}
+\ecomm{begin\{list\}\{\ecomm{textcolor}\{red\}%
+\{\$\ecomm{spadesuit}\$\}\}\{\}} 
+\end{quote}
+%
+followed by the usual \ecomm{item} command and the command to end the
+list.  Some fancy symbols for item markers are available in different
+packages.
+
+\end{list}
+
+
+\endslide
+
+%%%%%%%%%%%%%%%
+
+\beginslide
+\section{Printing out}
+%
+In case you want to print out the talk, you would presumably want all
+segments of a page to appear simultaneously.  Two options have been
+provided for this.  If you type
+%
+\begin{quote}
+\comm{transparency}
+\end{quote}
+%
+in the preamble of the file, you will obtain a version which you can
+use on transparencies.  On the other hand, if you type 
+%
+\begin{quote}
+\comm{onpaper}
+\end{quote}
+%
+in the preamble, you will obtain a more condensed version, where text
+will not be divided into slides, but will rather appear continuously,
+as is usual for printing out an article.  You cannot use both at the
+same time.  If you put both commands, only the last one will take
+effect. 
+
+If later you want to produce a multimedia talk again, just remove all 
+of these declarations from the preamble.
+
+\endslide
+
+%%%%%%%%%%%%%%%
+
+\beginslide
+\section{Summary of commands}
+%
+Here is a summary of the special commands for \pptalk.
+%
+\begin{list}{}{}
+\item[\comm{beginslide}$\,\cdots\,$\comm{endslide}] Denotes the
+beginning and end of a slide.  The contents of the slide goes in the
+middle, in place of the three dots.
+
+\item[\comm{newsegment}] Denotes the beginning of a new segment in a
+slide.  Not required for the first segment in a slide, which begins
+with the \comm{beginslide} declaration.
+
+\item[\comm{samesegment}] If the \comm{newsegment} appears within a
+group, this command has to be used at the end of the group to reassert
+the continuation of the segment after the group.
+
+\item[\comm{slidebox}] Defines the border and base colors of all
+slides which start after this announcement, unless changed by the same
+command again.  An optional argument defines the width of the border.
+
+\item[\comm{Color}] Changes the color of the text for the rest of the
+document.
+
+\item[\comm{transparency}] To be put in the preamble if you 
+want all segments to appear simultaneously on a page, as e.g.\ is
+usual for a transparency talk.
+
+\item[\comm{onpaper}] To be put in the preamble if you want a
+continuous printout, like you would want for an article to be sent to
+a journal.
+
+\end{list}
+%%
+
+\endslide
+
+\beginslide
+
+Then there are commands which need to be set with a leading
+\ecomm{def}.  These are:
+%
+\begin{list}{}{}
+\item[\ecomm{def}\comm{defaultsize}] Redefines the default size of
+  letters in the text.
+
+\item[\ecomm{def}\comm{runningheadtext}] Redefines the running head on
+  the slides.
+
+\item[\ecomm{def}\comm{runningheadcolor}] Redefines the color of the
+  letters in the running head on the slides.
+
+\end{list}
+%%
+
+Also useful are the following commands,  which
+are not \pptalk\ specials but are not a standard \LaTeX\ commands 
+either.  The following two are parts of the package \file{color}:
+%
+\begin{list}{}{}
+\item[\ecomm{definecolor}] Used for defining colors.
+
+\item[\ecomm{textcolor}] Redefines the text color locally.
+
+\end{list}
+%%
+
+And then the command from the \file{epsf} pacakge:
+%
+\begin{list}{}{}
+\item[\ecomm{epsfbox}] Used for inserting figures. Remember that the
+\ecomm{epsfysize} command is mandatory here.
+
+\end{list}
+%%
+
+\endslide
+
+
+
+%%%%%%%%%%
+
+\beginslide
+%
+\section{Acknowledgements}  I thank Soumitro Banerjee and Amitabha
+Lahiri, who made many important comments and refused to be satisfied
+by earlier versions of \pptalk.  I hope they are still dissatisfied,
+which will provide me with motivations for further improvements of
+\pptalk.
+
+If you find any bug, or have any suggestion for improvements without
+substantially complicating the program, please contact me.
+
+\endslide
+
+
+\end{document}
+

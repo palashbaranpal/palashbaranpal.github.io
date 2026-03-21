@@ -1,0 +1,170 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%  pptalk.sty
+%%  A LaTeX-based package for talk presentation
+%%
+%%  Copyright (C) 2004, 2005  Palash Baran Pal 
+%%  e-mail: pbpal@theory.saha.ernet.in
+%%  internet: http://tnp.saha.ernet.in/~pbpal
+%%  Address: Saha Institute of Nuclear Physics
+%%           1/AF Bidhan Nagar
+%%           Calcutta 700064, INDIA
+%%
+%%  This is version 2, released in March 2005
+
+%%  This program is free software; you can redistribute it and/or modify
+%%  it under the terms of the GNU General Public License (GPL) as
+%%  published by the Free Software Foundation; either version 2 of the
+%%  License, or (at your option) any later version.
+
+%%  Details of GPL can be found on the source page of this package at
+%%  http://tnp.saha.ernet.in/~pbpal/pptalk.html
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{color,epsf}
+\usepackage{latexsym,times}
+
+\special{! /landplus90 true store}
+\special{landscape}
+
+\textwidth=26cm
+\textheight=20cm
+\topmargin=-30mm
+\oddsidemargin=-20mm
+\evensidemargin=\oddsidemargin
+\pagestyle{empty}
+
+\tolerance=10000
+
+\makeatletter
+
+%\newif\ifhide
+
+\newcounter{nsegment}
+\newcounter{donelaps}
+\newcounter{totlaps}
+\newlength{\totwd}
+\newlength{\critheight}
+\setlength{\critheight}{0.8\textheight}
+
+% THE BASIC COMMAND FOR DIVIDING INTO SLIDES
+
+\newsavebox{\Zb@x}
+
+\long\def\beginslide#1\endslide{%
+\def\runningh@ad{\noindent\colorbox{\slideborderc@l@r} 
+{\textcolor{\runningheadcolor}
+{\hbox to \totwd{\Large\runningheadtext \hss Slide~\arabic{page}}}}
+}
+%%
+\setlength{\totwd}{\textwidth}
+\addtolength{\totwd}{2\fboxrule}
+%%
+\ifnum\thepage>0\clearpage\fi
+\setcounter{donelaps}{0}\setcounter{nsegment}{0}
+%%
+\runningh@ad
+%%
+\savebox{\Zb@x}{\vbox{\defaultsize\color{\carryc@l@r}#1}}
+    \ifnum \ht\Zb@x > \textheight\typeout
+	{>>> Too much material on this slide <<<}
+	\null\vfill
+	{\large\noindent 
+%
+        Too much material on this slide.  Revise it.  Here is a
+        version of the page in tiny fonts, to remind you of what is at
+        stake:
+%
+	  	\par\vfill\noindent\framebox{
+		\vbox{\footnotesize \color{black}{#1}}}
+	}\vfill
+    \else
+	\fcolorbox{\slideborderc@l@r}{\slidebasec@l@r}
+		{\usebox{\Zb@x}}
+	\stepcounter{donelaps}\newpage
+	\setcounter{totlaps}{\thensegment}
+	\addtocounter{totlaps}{1}
+	\ifnum\thetotlaps>1
+		\loop\setcounter{nsegment}{0}
+		\addtocounter{page}{-1}
+		\runningh@ad
+		\fcolorbox{\slideborderc@l@r}{\slidebasec@l@r}
+			{\vbox{\color{\carryc@l@r}\defaultsize #1\vfill}}
+		\stepcounter{donelaps}\newpage
+		\ifnum\thedonelaps<\thetotlaps\repeat
+	      % \fi not necessary for loop
+	\fi
+    \fi
+%
+    \ifnum \ht\Zb@x < \critheight
+    \typeout{>>> This slide has plenty of room <<<}
+    \typeout{>>> Would you like to put in some more stuff? <<<}
+    \fi
+}
+
+% RUNNING HEAD
+
+\def\runninghead#1#2{\def\runningheadcolor{#1}\def\runningheadtext{#2}}
+
+% COMMANDS FOR SEGMENTATION
+
+\def\newsegment{\ifnum\thensegment=\thedonelaps%
+\global\color{\slidebasec@l@r}\fi\stepcounter{nsegment}}
+
+\def\samesegment{\ifnum\thensegment>\thedonelaps%
+\color{\slidebasec@l@r}\fi}
+
+% COLOR COMMANDS
+
+\def\textcolor#1#2{\ifnum\thensegment>\thedonelaps%
+{\color{\slidebasec@l@r}{#2}}\else{\color{#1}{#2}}\fi}
+
+\def\Color#1{\global\def\carryc@l@r{#1}
+\ifnum\thensegment>\thedonelaps%
+\color{\slidebasec@l@r}\else\color{#1}\fi}
+
+\def\slidec@l@rs#1#2{%
+	\def\slideborderc@l@r{#1}%
+	\def\slidebasec@l@r{#2}%
+}
+
+\def\slidec@l@rmargin[#1]#2#3{%
+	\setlength{\fboxrule}{#1}
+	\def\slideborderc@l@r{#2}%
+	\def\slidebasec@l@r{#3}%
+}
+
+\def\slidebox{\@ifnextchar[{\slidec@l@rmargin}{\slidec@l@rs}}
+
+% OUTPUT OPTIONS
+
+\def\transparency{\def\newsegment{}\def\samesegment{}}
+\def\onpaper{\def\newsegment{}\def\samesegment{}%
+	\def\beginslide{}\def\endslide{}
+	\special{papersize={297mm,210mm}}%
+	\topmargin=-40mm
+	\textheight=19cm\textwidth=15cm
+	\pagestyle{plain}}
+
+%% SETTING DEFAULTS
+
+\pagecolor{white} \def\slideborderc@l@r{red} \def\slidebasec@l@r{cyan}
+\def\carryc@l@r{black} \setlength{\fboxrule}{2mm}
+\def\defaultsize{\LARGE} 
+\def\runningheadcolor{black}
+\def\runningheadtext{Created with pptalk}
+
+
+% REDEFINING EXISTING COMMANDS
+
+\let\SECTI@N=\section
+\def\section#1{\SECTI@N*{\huge #1}}
+
+
+\let\EpSfB@X=\epsfbox
+\def\epsfbox#1{\ifnum\thensegment>\thedonelaps%
+\vbox to \epsfysize{\null}\else\EpSfB@X{#1}\fi
+}
+
+
+\makeatother
