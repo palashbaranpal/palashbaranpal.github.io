@@ -1,0 +1,154 @@
+<html>
+<title>talkpal</title>
+
+<body bgcolor="#ffa8c7" link="#0000FF" vlink="#800080">
+
+<head>
+<style type="text/css">
+
+filen {color: rgb(0, 140, 0); font-weight: bolder; }
+commn {color: rgb(224, 0, 0); background-color: rgb(0,250,250); font-weight: bolder; }
+
+</style>
+</head>
+
+
+  
+<h1> <font color="#ffff00">talk</font><font color=cyan>pal</font>: A
+LaTeX-based package for talk presentation</h1>
+<hr>
+
+Created by Palash B. Pal </font>
+<br>
+First released: July 2026.<br>
+<hr>
+<font size=4>
+The package 
+<font color="#ffff00">talk</font><font color=cyan>pal</font> is a
+LaTeX-based style file which allows you to create pdf files which can be
+used for presentation.
+
+<p>
+
+Using a multi-media projector, you can project your talk on the
+screen in different slides.  The slides can be divided into different
+segments which can appear one at a time, at the push of one key on the
+keyboard or one click of the mouse.  
+
+
+
+
+<h2> The files in the distribution </h2>
+
+
+These are the names of the files in the package, along with
+an upper limit  of their sizes given in parentheses:<br>
+<ul><font color=green><b>
+<li> <a href="talkpal.sty">talkpal.sty</a> (5 kb)
+<li> <a href="manual.pdf">manual.pdf</a> (169 kb)
+<li> <a href="manual.tex">manual.tex</a> (30 kb)
+<li> <a href="slidekey.pl">slidekey.pl</a> (1 kb)
+</b></font>
+</ul>
+Only the first file is indispensable.  The others are for helping the
+user at the initial stage.  Read more about these files to decide
+which ones you need to download.
+
+
+
+<h3> The pdf file </h3> 
+
+I suggest that you first download the
+file <font color=green><b>manual.pdf</b></font>, open it and go through
+it. Choose any pdf viewer. I will assume that you know how to
+navigate through the file with the viewer of your choice.<p>
+
+<p> Go to the <font color=yellow>full-screen view</font> now.  You may
+use some special features of this mode.  For example, in the ACROBAT,
+you can set up in a way that new slides appear in the DISSOLVE mode, or
+in some other mode that you like.  These, of course, have to be set
+before you enter the <font color=yellow>full-screen view</font> mode.
+
+
+<p> You cannot fail to notice that this file is a manual for <font
+color=purple>talkpal</font>.  It is also an example created with <font
+color=purple>talkpal</font>. If you are satisfied with the example and
+want to use <font color=purple>talkpal</font> for your presentations,
+continue.
+
+
+<h3> The style file </h3>
+
+As already said, the file <filen>talkpal.sty</filen> is the
+main file which performs all the tricks for you.  You need to install it. 
+
+<ul>
+
+<li>
+
+Log in as the superuser (root), and move the
+file <filen>talkpal.sty</filen> to any place on your computer under the
+<tt><b>\texmf</b></tt> directory, preferably to some subdirectory
+where other style files are kept, or in a new subdirectory created for
+your personal use.
+
+<p> Run the command 
+<p align="center">
+<font color="#456789">
+<commn>texhash </commn>
+</font>
+</p>
+
+so that the LaTeX compiler knows about <font
+color=purple>talkpal</font>.  Believe it or not, that's all you need to
+do for the installation.
+
+
+<li> If you don't have superuser access, you can put the
+file <filen>talkpal.sty</filen> within any directory, but then it will
+work only within that directory.
+
+</ul>
+
+<h3> The inessential files </h3>
+
+The file <filen>manual.tex</filen> is the source file from
+which <font color=green><b>manual.pdf</b></font> has been produced.  You
+may want to look into the source file to get some idea of how to write
+a <font color=purple>talkpal </font> file.
+
+<p>
+
+The file <font color=green><b>slidekey.pl</b></font> is useful only if
+you use an emacs editor.  It is a little script that you can insert into
+your emacs configuration file (called <filen>.emacs</filen>).  Once this
+is done, a push of the keyboard function key F11 will write the
+commands <commn>\beginslide</commn> and <commn>\endslide</commn> into a
+file, provided the emacs version is 19 or higher.  You can change it
+trivially to any other key of your choice.
+
+
+<h2> How to use <font color=purple>talkpal</font></h2>
+
+All instructions regarding the use of <font color=purple>talkpal</font>
+have been given in the sample file <filen>manual.pdf</filen> mentioned
+earlier.  In case of any problem, send a message to the creator
+of <font color="#ffff00">talk</font><font color=cyan>pal</font>.
+
+
+<h2> License </h2>
+
+<font color=purple>talkpal</font> is protected by the GNU General
+Public License (GPL).  To know more about GPL, go to the <a
+href="http://www.gnu.org/copyleft/gpl.html">GPL home page</a>.
+
+
+<hr>
+
+<p align="center">
+This page is created and maintained by <a
+href="mailto:palashbaran.pal@saha.ac.in">Palash B. Pal</a> 
+<br> Click on the
+name to send a message if you find some bug or have any other comment.
+
+</html>
