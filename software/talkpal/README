@@ -1,0 +1,16 @@
+
+This is a package for creating presentations.  The description of the
+files are as follows.
+
+talkpal.sty : The style file that is necessary for creating the
+presentation.  It should be kept either in the area where all
+tex/latex distribution files are kept on the computer.  Alternatively,
+it can be put in any directory, but then it will work only within that
+directory.
+
+manual.pdf : A pdf file which explains how to use the package.  It also
+serves as a sample of the use of talkpal, since it has been created by
+using talkpal.
+
+manual.tex : A .tex file that uses talkpal.sty and creates manual.pdf.
+

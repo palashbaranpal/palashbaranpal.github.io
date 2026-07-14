@@ -1,0 +1,107 @@
+
+\usepackage{color, graphicx}
+%\usepackage{latexsym}
+\usepackage{lastpage}
+\usepackage{newcent}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\usepackage[papersize={240mm,135mm}]{geometry}
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+
+\topmargin=-25mm
+\oddsidemargin=-20mm
+\evensidemargin=\oddsidemargin
+\textwidth=230mm
+\textheight=100mm
+
+\newcounter{nsegment}
+\newcounter{currlap}
+\newcounter{totlaps}
+
+\setcounter{currlap}0
+
+\makeatletter
+\def\slidebasec@l@r{red}
+\def\carryc@l@r{black}
+
+
+\long\def\beginslide#1\endslide{\newpage
+  \setcounter{nsegment}1
+  \setcounter{currlap}1
+  \setcounter{totlaps}1
+  \ifnum\thetotlaps>0
+  \loop
+  \setcounter{nsegment}1
+  \setcounter{totlaps}{\thensegment}
+  \addtocounter{totlaps}1
+  \vbox{\defaultsize #1}\vfill
+  \stepcounter{currlap}
+  \newpage
+  \ifnum\thecurrlap<\thetotlaps
+		\addtocounter{page}{-1}
+  \repeat
+  \fi
+}
+
+\def\newsegment{\stepcounter{totlaps}%
+  \ifnum\thensegment=\thecurrlap%
+  \global\color{\slidebasec@l@r}\fi\stepcounter{nsegment}%
+}
+
+\def\samesegment{\ifnum\thensegment>\thecurrlap%
+  \color{\slidebasec@l@r}\fi}
+
+\def\flash#1#2{\newsegment\ifnum\thensegment=\thecurrlap{\vspace{-#1\textheight}#2}\fi}
+
+
+\let\tcol=\textcolor
+\def\textcolor#1#2{\ifnum\thensegment>\thecurrlap%
+  \global\color{\slidebasec@l@r}\else%
+  \tcol{#1}{#2}\fi}
+
+%% INCLUDING PICTURES
+
+\def\putfigure#1#2#3{\ifnum\thensegment>\thecurrlap
+  \vspace*{#1}
+  \else
+  \includegraphics[height=#1, #2]{#3}
+  \fi
+}
+
+
+%% REDEFINING HYPERREF COMMANDS
+
+\def\hyperpairarrow#1#2{\hyperlink{#1}{\fboxrule=.5mm\framebox{$\downarrow$}} 
+  \ifnum\thensegment=\thecurrlap
+  \hypertarget{#2}{}\fi}
+
+\def\hyperpaircustom[#1]#2#3{\hyperlink{#2}{\fboxrule=.5mm\framebox{#1}} 
+  \ifnum\thensegment=\thecurrlap
+  \hypertarget{#3}{}\fi}
+
+\def\hyperpair{\@ifnextchar[{\hyperpaircustom}{\hyperpairarrow}}
+
+%% SETTING DEFAULTS
+
+\def\slidebasec@l@r{black}
+\pagecolor{\slidebasec@l@r}
+\setlength{\fboxrule}{1mm}
+\def\defaultsize{\Large} 
+\color{yellow}
+
+\def\setbasecolor#1{\def\slidebasec@l@r{#1}\pagecolor{#1}}
+
+\def\foottext{Created with talkpal}
+\def\footcolor{white}
+
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[C]{\parbox{\textwidth}{\tcol{\footcolor}
+    {\null\hrulefill\newline \foottext \hfill Slide~\arabic{page} of \pageref{LastPage}}}} 
+
+\makeatother
+
+
+
