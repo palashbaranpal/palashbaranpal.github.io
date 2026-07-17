@@ -20,7 +20,7 @@ LaTeX-based package for talk presentation</h1>
 
 Created by Palash B. Pal </font>
 <br>
-First released: July 2026.<br>
+First released: July 2026<br>
 <hr>
 <font size=4>
 The package 
@@ -45,9 +45,8 @@ These are the names of the files in the package, along with
 an upper limit  of their sizes given in parentheses:<br>
 <ul><font color=green><b>
 <li> <a href="talkpal.sty">talkpal.sty</a> (3 kb)
-<li> <a href="manual.pdf">manual.pdf</a> (211 kb)
-<li> <a href="manual.tex">manual.tex</a> (28 kb)
-<li> <a href="slidekey.pl">slidekey.pl</a> (1 kb)
+<li> <a href="talkpal-doc.pdf">talkpal-doc.pdf</a> (211 kb)
+<li> <a href="talkpal-doc.tex">talkpal-doc.tex</a> (28 kb)
 </b></font>
 </ul>
 Only the first file is indispensable.  The others are for helping the
@@ -59,7 +58,7 @@ which ones you need to download.
 <h3> The pdf file </h3> 
 
 I suggest that you first download the
-file <font color=green><b>manual.pdf</b></font>, open it and go through
+file <font color=green><b>talkpal-doc.pdf</b></font>, open it and go through
 it. Choose any pdf viewer. I will assume that you know how to
 navigate through the file with the viewer of your choice.<p>
 
@@ -110,30 +109,40 @@ work only within that directory.
 
 </ul>
 
-<h3> The inessential files </h3>
+<h3> The latex file </h3>
 
-The file <filen>manual.tex</filen> is the source file from
-which <font color=green><b>manual.pdf</b></font> has been produced.  You
-may want to look into the source file to get some idea of how to write
-a <font color=purple>talkpal </font> file.
+The file <filen>talkpal-doc.tex</filen> is the source file from
+which <font color=green><b>talkpal-doc.pdf</b></font> has been produced.
+You may want to look into the source file to get some idea of how to
+write a <font color=purple>talkpal </font> file.  But, if you are
+sufficiently familiar with LaTeX, you need not look into this file at
+all.
 
 <p>
 
-The file <font color=green><b>slidekey.pl</b></font> is useful only if
-you use an emacs editor.  It is a little script that you can insert into
-your emacs configuration file (called <filen>.emacs</filen>).  Once this
-is done, a push of the keyboard function key F11 will write the
-commands <commn>\beginslide</commn> and <commn>\endslide</commn> into a
-file, provided the emacs version is 19 or higher.  You can change it
-trivially to any other key of your choice.
+Use this file as it is, as a guide if you need.  <b> Do not </b> try to
+rebuild the file <filen> talkpal-doc.pdf </filen> by running <comm>
+pdflatex </comm> on this file.  It will not work, because some of the
+figure files are not included in this distribution.
+
 
 
 <h2> How to use <font color=purple>talkpal</font></h2>
 
 All instructions regarding the use of <font color=purple>talkpal</font>
-have been given in the sample file <filen>manual.pdf</filen> mentioned
-earlier.  In case of any problem, send a message to the creator
-of <font color="#ffff00">talk</font><font color=cyan>pal</font>.
+have been given in the sample file <filen>talkpal-doc.pdf</filen>
+mentioned earlier.  In case of any problem, send a message to the
+creator of <font color="#ffff00">talk</font><font color=cyan>pal</font>.
+
+<h2> CTAN availability </h2>
+
+The entire talkpal package can be obtained from the CTAN archive as
+well, in the directory
+
+<p align="center">
+<filen> /macros/latex/contrib/talkpal </filen>
+</font>
+</p>
 
 
 <h2> License </h2>
